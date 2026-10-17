@@ -1,0 +1,59 @@
+<section class="sk-block sk-pricing1" group="Pricing" data-bs-version="5.1" mbr-class="{'mbr-parallax-background': bg.parallax}" mbr-style="{'padding-top': paddingTop * 15 + 'px', 'padding-bottom': paddingBottom * 15 + 'px'}">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Subtitle" name="showSubtitle" checked>
+        <input type="checkbox" title="Show Badge" name="showBadge" checked>
+        <input type="checkbox" title="Show Buttons" name="showButtons" checked>
+        <select title="Plans" name="plansAmount">
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+        </select>
+
+        <fieldset type="background" name="bg" parallax>
+            <input type="image" title="Background Image" value="@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg" parallax>
+            <input type="color" title="Background Color" value="#f2f7fa" selected>
+        </fieldset>
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center mb-5 text-center">
+            <div class="col-12 col-lg-8">
+                <h2 class="sk-title mbr-section-title mb-3 mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">Tickets</h2>
+                <h3 class="sk-subtitle mbr-section-subtitle mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showSubtitle" data-app-selector=".mbr-section-subtitle">Pick the plan that suits you.</h3>
+            </div>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-12 col-md-6" mbr-class="{'col-lg-4': plansAmount == '3'}">
+                <div class="sk-price-card">
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-card-title">Standard</h4>
+                    <div class="sk-price mbr-fonts-style" mbr-theme-style="display-2" data-app-selector=".sk-price">€ 50</div>
+                    <ul class="sk-check mbr-text mbr-fonts-style" mbr-theme-style="display-7"><li>Entry to all days</li><li>Welcome pack</li><li>Access to the schedule</li></ul>
+                    <div class="mbr-section-btn mt-auto" mbr-if="showButtons" mbr-buttons mbr-theme-style="display-4" data-toolbar="-mbrBtnMove,-mbrBtnAdd"><a class="sk-btn sk-btn-primary" href="#">Choose</a></div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6" mbr-class="{'col-lg-4': plansAmount == '3'}">
+                <div class="sk-price-card sk-featured">
+                    <span class="sk-badge align-self-start mb-2 mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showBadge">Most popular</span>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-card-title">Plus</h4>
+                    <div class="sk-price mbr-fonts-style" mbr-theme-style="display-2" data-app-selector=".sk-price">€ 90</div>
+                    <ul class="sk-check mbr-text mbr-fonts-style" mbr-theme-style="display-7"><li>Everything in Standard</li><li>Priority entry</li><li>Exclusive gift</li></ul>
+                    <div class="mbr-section-btn mt-auto" mbr-if="showButtons" mbr-buttons mbr-theme-style="display-4" data-toolbar="-mbrBtnMove,-mbrBtnAdd"><a class="sk-btn sk-btn-primary" href="#">Choose</a></div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4" mbr-if="plansAmount == '3'">
+                <div class="sk-price-card">
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-card-title">Premium</h4>
+                    <div class="sk-price mbr-fonts-style" mbr-theme-style="display-2" data-app-selector=".sk-price">€ 150</div>
+                    <ul class="sk-check mbr-text mbr-fonts-style" mbr-theme-style="display-7"><li>Everything in Plus</li><li>Reserved seating</li><li>Meet &amp; greet</li></ul>
+                    <div class="mbr-section-btn mt-auto" mbr-if="showButtons" mbr-buttons mbr-theme-style="display-4" data-toolbar="-mbrBtnMove,-mbrBtnAdd"><a class="sk-btn sk-btn-primary" href="#">Choose</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,42 @@
+<section class="sk-block sk-hero sk-hero1" group="Headers" data-bs-version="5.1" data-bg-video="{{bg.type == 'video' && bg.value.url}}" mbr-class="{'sk-fullscreen': fullScreen, 'mbr-parallax-background': bg.parallax}" mbr-style="{'padding-top': fullScreen ? 0 : paddingTop * 15 + 'px', 'padding-bottom': fullScreen ? 0 : paddingBottom * 15 + 'px'}">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="checkbox" title="Full Screen" name="fullScreen" checked>
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="8" condition="fullScreen == false">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="8" condition="fullScreen == false">
+
+        <input type="checkbox" title="Show Capsule" name="showCapsule" checked>
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Text" name="showText" checked>
+        <input type="checkbox" title="Show Buttons" name="showButtons" checked>
+
+        <fieldset type="background" name="bg" parallax>
+            <input type="image" title="Background Image" value="@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg" selected parallax>
+            <input type="color" title="Background Color" value="#dce7f5">
+            <input type="video" title="Background Video" value="http://www.youtube.com/watch?v=uNCr7NdOJgw">
+        </fieldset>
+        <input type="checkbox" title="Overlay" name="overlay" condition="bg.type !== 'color'" checked>
+        <input type="color" title="Overlay Color" name="overlayColor" value="#ffffff" condition="overlay && bg.type !== 'color'">
+        <input type="range" inline title="Opacity" name="overlayOpacity" min="0" max="1" step="0.1" value="0.5" condition="overlay && bg.type !== 'color'">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="mbr-overlay" mbr-if="overlay && bg.type !== 'color'" mbr-style="{'opacity': overlayOpacity, 'background-color': overlayColor}"></div>
+
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-12 col-lg-10">
+                <div class="sk-capsule mb-4 mbr-fonts-style" mbr-if="showCapsule" mbr-theme-style="display-4" data-app-selector=".sk-capsule">
+                    <span>12 – 15 June 2027</span><span>·</span><span>Seaside Congress Center</span>
+                </div>
+                <h1 class="sk-title mbr-section-title mb-4 mbr-fonts-style" mbr-theme-style="display-1" mbr-if="showTitle">Your Event Name</h1>
+                <p class="sk-subtitle mbr-text mb-5 mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showText">A bold, friendly header with a title, a short pitch and clear calls to action. Replace this text with your own.</p>
+                <div class="mbr-section-btn" mbr-if="showButtons" mbr-buttons mbr-theme-style="display-4" data-toolbar="-mbrBtnMove">
+                    <a class="sk-btn sk-btn-primary me-2 mb-2" href="https://mobirise.com">Get your pass</a>
+                    <a class="sk-btn sk-btn-outline mb-2" href="https://mobirise.com">See the programme</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

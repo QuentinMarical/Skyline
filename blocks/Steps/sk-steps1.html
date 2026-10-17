@@ -1,0 +1,47 @@
+<section class="sk-block sk-steps1" group="Steps" data-bs-version="5.1" mbr-style="{'background-color': bgColor, 'padding-top': paddingTop * 15 + 'px', 'padding-bottom': paddingBottom * 15 + 'px'}">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Text" name="showText" checked>
+        <select title="Steps" name="stepsAmount">
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+            <option value="4">4</option>
+        </select>
+        <input type="color" title="Background Color" name="bgColor" value="#ffffff">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center mb-5 text-center">
+            <div class="col-12 col-lg-8">
+                <h2 class="sk-title mbr-section-title mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">How it works</h2>
+            </div>
+        </div>
+        <div class="row g-4 text-center">
+            <div class="col-12 col-md-6" mbr-class="{'col-lg-3': stepsAmount == '4', 'col-lg-4': stepsAmount == '3'}">
+                <div class="sk-step-number mbr-fonts-style" mbr-theme-style="display-5">1</div>
+                <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-card-title">Create your account</h4>
+                <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showText" data-app-selector=".mbr-text">Describe the first step in one or two sentences.</p>
+            </div>
+            <div class="col-12 col-md-6" mbr-if="stepsAmount > 1" mbr-class="{'col-lg-3': stepsAmount == '4', 'col-lg-4': stepsAmount == '3'}">
+                <div class="sk-step-number mbr-fonts-style" mbr-theme-style="display-5">2</div>
+                <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-card-title">Choose your ticket</h4>
+                <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showText" data-app-selector=".mbr-text">Describe the second step in one or two sentences.</p>
+            </div>
+            <div class="col-12 col-md-6" mbr-if="stepsAmount > 2" mbr-class="{'col-lg-3': stepsAmount == '4', 'col-lg-4': stepsAmount == '3'}">
+                <div class="sk-step-number mbr-fonts-style" mbr-theme-style="display-5">3</div>
+                <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-card-title">Pay and confirm</h4>
+                <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showText" data-app-selector=".mbr-text">Describe the third step in one or two sentences.</p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3" mbr-if="stepsAmount > 3">
+                <div class="sk-step-number mbr-fonts-style" mbr-theme-style="display-5">4</div>
+                <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-card-title">Enjoy the event</h4>
+                <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showText" data-app-selector=".mbr-text">Describe the fourth step in one or two sentences.</p>
+            </div>
+        </div>
+    </div>
+</section>
