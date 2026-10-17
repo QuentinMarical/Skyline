@@ -35,6 +35,8 @@ for name, pg in pages.items():
         html = c["_customHTML"]
         if html[html.rfind("<style>") + 7:html.rfind("</style>")] != sk.css_for(html):
             errors.append("%s : CSS embarqué périmé dans %s (relancer tools/build_demo.py)" % (name, c["_name"]))
+        if c["_styles"] != sk.infer_styles(html):
+            errors.append("%s : _styles périmé dans %s (relancer tools/build_demo.py)" % (name, c["_name"]))
         body = html[html.index("</mbr-parameters>"):html.rfind("<style>")]
         for h in re.findall(r'href="([^"]*)"', body):
             if name in allow:

@@ -3,8 +3,8 @@
 
     <mbr-parameters>
     <!-- Block parameters controls (Blue "Gear" panel) -->
-        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
-        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="4" step="1" value="2">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="4" step="1" value="2">
         <input type="checkbox" title="Show Title" name="showTitle" checked>
         <input type="checkbox" title="Show Subtitle" name="showSubtitle" checked>
         <input type="checkbox" title="Show Phone Field" name="showPhone">
@@ -28,7 +28,7 @@
                         <div class="col-md-6"><label class="form-label" for="sk-email">Email</label><input class="form-control" type="email" name="email" id="sk-email" required></div>
                         <div class="col-12" mbr-if="showPhone"><label class="form-label" for="sk-phone">Phone</label><input class="form-control" type="tel" name="phone" id="sk-phone"></div>
                         <div class="col-12"><label class="form-label" for="sk-message">Message</label><textarea class="form-control" name="message" id="sk-message" rows="5"></textarea></div>
-                        <div class="col-12 text-center mbr-section-btn" mbr-buttons mbr-theme-style="display-4" data-toolbar="-mbrBtnMove,-mbrBtnAdd"><button type="submit" class="sk-btn sk-btn-primary">Send</button></div>
+                        <div class="col-12 text-center mbr-section-btn" mbr-buttons mbr-theme-style="display-4" data-toolbar="-mbrBtnMove,-mbrBtnAdd"><button type="submit" class="sk-btn sk-btn-primary mbr-fonts-style display-4">Send</button></div>
                     </div>
                 </form>
             </div>

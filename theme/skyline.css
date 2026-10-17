@@ -24,6 +24,8 @@
 
 /* Boutons */
 .sk-btn { display: inline-flex; max-width: 100%; text-align: center; justify-content: center; align-items: center; gap: .5rem; padding: .75rem 1.5rem; border-radius: var(--sk-r-pill); border: 2px solid transparent; font-weight: 500; text-decoration: none; transition: transform .15s, background-color .15s; }
+/* repli : .mbr-section-btn du thème met font-size:0 ; :where() garde une spécificité nulle pour que display-4 reste prioritaire */
+:where(.sk-btn) { font-size: 1rem; }
 .sk-btn:hover { transform: translateY(-1px); }
 .sk-btn.sk-btn-primary { background: var(--sk-navy); color: var(--sk-white); }
 .sk-btn.sk-btn-primary:hover { background: #0d0da0; color: var(--sk-white); }

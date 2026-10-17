@@ -2,8 +2,8 @@
 
     <mbr-parameters>
     <!-- Block parameters controls (Blue "Gear" panel) -->
-        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
-        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="4" step="1" value="2">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="4" step="1" value="2">
         <input type="checkbox" title="Show Title" name="showTitle" checked>
         <input type="checkbox" title="Show Subtitle" name="showSubtitle" checked>
         <select title="Photos" name="photosAmount">
@@ -22,12 +22,12 @@
             </div>
         </div>
         <div class="row g-3">
-            <div class="col-6 col-md-4"><figure class="sk-photo mbr-figure"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiA5Jz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyNiNWNjZTgnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMzOGJkZjUnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nOScgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg==" alt="Photo 1"></figure></div>
-            <div class="col-6 col-md-4"><figure class="sk-photo mbr-figure"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiA5Jz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyNiNWNjZTgnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMzOGJkZjUnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nOScgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg==" alt="Photo 2"></figure></div>
-            <div class="col-6 col-md-4"><figure class="sk-photo mbr-figure"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiA5Jz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyNiNWNjZTgnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMzOGJkZjUnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nOScgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg==" alt="Photo 3"></figure></div>
-            <div class="col-6 col-md-4" mbr-if="photosAmount == '6'"><figure class="sk-photo mbr-figure"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiA5Jz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyNiNWNjZTgnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMzOGJkZjUnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nOScgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg==" alt="Photo 4"></figure></div>
-            <div class="col-6 col-md-4" mbr-if="photosAmount == '6'"><figure class="sk-photo mbr-figure"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiA5Jz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyNiNWNjZTgnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMzOGJkZjUnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nOScgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg==" alt="Photo 5"></figure></div>
-            <div class="col-6 col-md-4" mbr-if="photosAmount == '6'"><figure class="sk-photo mbr-figure"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiA5Jz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyNiNWNjZTgnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMzOGJkZjUnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nOScgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg==" alt="Photo 6"></figure></div>
+            <div class="col-6 col-md-4"><figure class="sk-photo mbr-figure"><img src="../_images/background.jpg" alt="Photo 1"></figure></div>
+            <div class="col-6 col-md-4"><figure class="sk-photo mbr-figure"><img src="../_images/background.jpg" alt="Photo 2"></figure></div>
+            <div class="col-6 col-md-4"><figure class="sk-photo mbr-figure"><img src="../_images/background.jpg" alt="Photo 3"></figure></div>
+            <div class="col-6 col-md-4" mbr-if="photosAmount == '6'"><figure class="sk-photo mbr-figure"><img src="../_images/background.jpg" alt="Photo 4"></figure></div>
+            <div class="col-6 col-md-4" mbr-if="photosAmount == '6'"><figure class="sk-photo mbr-figure"><img src="../_images/background.jpg" alt="Photo 5"></figure></div>
+            <div class="col-6 col-md-4" mbr-if="photosAmount == '6'"><figure class="sk-photo mbr-figure"><img src="../_images/background.jpg" alt="Photo 6"></figure></div>
         </div>
     </div>
 

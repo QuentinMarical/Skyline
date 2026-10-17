@@ -101,6 +101,14 @@ Ajouter un bloc : créer `blocks/<Groupe>/sk-xxx.html` (première ligne `<!-- ti
 
 Le workflow construit `skyline-blocks.mbrext` et le publie dans la release (le lien `releases/latest/download/skyline-blocks.mbrext` pointe ensuite toujours sur la dernière version).
 
+## Particularités de Mobirise 6 (relevées sur une vraie publication)
+
+- **Marges** : les options *Top* / *Bottom* vont de 0 à 4 (45 px par cran, 2 = 90 px). Mobirise remet ces options à 2 quand on ajoute un bloc, quelle que soit la valeur du modèle ; l'échelle est donc calée sur 2.
+- **Images** : tout `src` / `value` d'un modèle est réécrit comme un chemin relatif au composant. Les blocs utilisent `../_images/background.jpg` (une data-URI serait cassée) ; remplacer les visuels via le sélecteur d'image de Mobirise.
+- **Animation au défilement** : si le thème l'active (*Animated on scroll*), les textes sont masqués (`hidden animate__animated`) jusqu'au défilement ; une capture d'écran de page entière peut donc sembler vide.
+- **Tailles de texte** : les blocs utilisent les styles `display-1/2/4/5/7` du thème. Valeurs conseillées dans *Style Editor* : 3,5 / 2,5 / 1 / 1,25 / 1 rem.
+- **Boutons** : le thème met `font-size: 0` sur les conteneurs `mbr-section-btn` ; les boutons ont une taille de repli et la classe `display-4`.
+
 ## Compatibilité
 
 - Les blocs suivent le format natif des extensions Mobirise à composants (`components/<bloc>/template.html` + `style.less` + `thumb.png`, déclarés dans `params.json`, feuille de style via `plugins/`), comme l'extension [Mailform](https://github.com/witsec/mobirise-mailform) de witsec. La galerie (bouton cube) reprend la méthode de [Design Blocks](https://github.com/witsec/mobirise-design-blocks), maintenue jusqu'à Mobirise 6.0.4 et après.

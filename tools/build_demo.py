@@ -110,19 +110,23 @@ def cid(*parts):
     return out
 
 
+BOOLEAN_ATTRS = r"checked|inline|selected|parallax|global|once|hidden|required|action|mbr-list|mbr-text|mbr-buttons|mbr-form|mbr-icon"
+
+
 def prototype(key):
-    if key in protos:
-        return copy.deepcopy(protos[key])
-    # bloc absent du projet de base : construit à partir des sources (même forme que Mobirise)
+    """Composant construit depuis les sources actuelles (les valeurs, `_styles` et CSS du projet de base peuvent être périmés).
+    Seule la forme du composant (alias, thème source...) est reprise du projet de base, comme Mobirise l'a enregistrée."""
     for g, p in sk.block_files():
         b = sk.load_block(g, p)
-        if b["key"] == key:
-            html = sk.native_html(b)
-            html = re.sub(r"<[^>]+>", lambda m: re.sub(r"\s(checked|inline|selected|parallax|global|once|mbr-list|mbr-text|mbr-buttons|mbr-form|mbr-icon)(?=[\s>])", r' \1=""', m.group(0)), html)
-            return {"alias": "skyline-blocks/components", "_isSecondary": True, "_styles": b["styles"], "_name": key,
-                    "_sourceTheme": "startm5", "_customHTML": html, "_cid": "", "_protectedParams": [],
-                    "_global": "global" in re.search(r"<section[^>]*>", html).group(0),
-                    "_once": "once" in re.search(r"<section[^>]*>", html).group(0), "_params": {}}
+        if b["key"] != key:
+            continue
+        html = sk.native_html(b)
+        html = re.sub(r"<[^>]+>", lambda m: re.sub(r"\s(%s)(?=[\s>])" % BOOLEAN_ATTRS, r' \1=""', m.group(0)), html)
+        root = re.search(r"<section[^>]*>", html).group(0)
+        c = copy.deepcopy(protos.get(key, {"alias": "skyline-blocks/components", "_isSecondary": True, "_sourceTheme": "startm5",
+                                           "_protectedParams": [], "_params": {}}))
+        c.update({"_name": key, "_customHTML": html, "_styles": b["styles"], "_global": " global" in root, "_once": " once" in root})
+        return c
     raise SystemExit("Bloc inconnu : " + key)
 
 
@@ -138,8 +142,7 @@ def comp(page, index, key, edits=(), params=None, links=None, seqs=()):
         html = hrefs(html, links)
     i = html.rfind("<style>")  # CSS embarqué : toujours régénéré depuis theme/skyline.css (celui du projet de base peut être ancien)
     c["_customHTML"] = html[:i] + "<style>%s</style>" % sk.css_for(html) + html[html.index("</style>", i) + len("</style>"):]
-    if not c.get("_global"):  # les blocs globaux (menu, pied de page) gardent le même _cid sur toutes les pages
-        c["_cid"] = cid(page, key, str(index))
+    c["_cid"] = cid("global", key) if c["_global"] else cid(page, key, str(index))  # blocs globaux : même _cid sur toutes les pages
     c["_anchor"] = "%s-%s" % (key, b36(_counter[0]))
     _counter[0] += 1
     return c
@@ -424,7 +427,8 @@ s["currentPage"] = "index.html"
 s["uniqCompNum"] = _counter[0]
 st = s["theme"]["styling"]
 st.update({"primaryColor": "#080866", "secondaryColor": "#38bdf5", "mainFont": "Inter", "display1Font": "Shrikhand", "display2Font": "Shrikhand",
-           "display5Font": "Inter", "display7Font": "Inter", "display4Font": "Inter", "underlinedLinks": False, "isAnimatedOnScroll": False})
+           "display5Font": "Inter", "display7Font": "Inter", "display4Font": "Inter", "underlinedLinks": False, "isAnimatedOnScroll": False,
+           "display1Size": 3.5, "display2Size": 2.5, "display4Size": "1", "display5Size": 1.25, "display7Size": 1})
 weights = ",".join("%d" % w for w in range(100, 1000, 100)) + "," + ",".join("%di" % w for w in range(100, 1000, 100))
 s["siteFonts"] = [
     {"css": "'Shrikhand', sans-serif", "name": "Shrikhand", "url": "https://fonts.googleapis.com/css?family=Shrikhand:400"},

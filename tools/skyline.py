@@ -19,6 +19,7 @@ _SVG = ("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'><defs>"
         "<stop offset='1' stop-color='#38bdf5'/></linearGradient></defs>"
         "<rect width='16' height='9' fill='url(#g)'/></svg>")
 PLACEHOLDER = "data:image/svg+xml;base64," + base64.b64encode(_SVG.encode()).decode()
+PAD_UNIT = 45  # px par cran des options paddingTop / paddingBottom (0 à 4)
 PLACEHOLDER_TOKEN = "@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg"
 
 
@@ -66,9 +67,9 @@ def infer_styles(html):
     styles = {}
     pad = {}
     if "paddingTop" in names:
-        pad["padding-top"] = "(@paddingTop * 15px)"
+        pad["padding-top"] = "(@paddingTop * %dpx)" % PAD_UNIT
     if "paddingBottom" in names:
-        pad["padding-bottom"] = "(@paddingBottom * 15px)"
+        pad["padding-bottom"] = "(@paddingBottom * %dpx)" % PAD_UNIT
     if pad:
         if "fullScreen" in names:
             styles["& when not (@fullScreen)"] = pad
@@ -88,9 +89,9 @@ def preview_style(html):
     css = []
     full = bool(v.get("fullScreen"))
     if "paddingTop" in v and not full:
-        css.append("padding-top:%dpx" % (int(v["paddingTop"]) * 15))
+        css.append("padding-top:%dpx" % (int(v["paddingTop"]) * PAD_UNIT))
     if "paddingBottom" in v and not full:
-        css.append("padding-bottom:%dpx" % (int(v["paddingBottom"]) * 15))
+        css.append("padding-bottom:%dpx" % (int(v["paddingBottom"]) * PAD_UNIT))
     if has_background_fieldset(html):
         m = re.search(r'<input type="color" title="Background Color" value="([^"]+)"', html)
         sel = re.search(r'<input type="image"[^>]*selected', html)
@@ -190,8 +191,8 @@ def native_html(block):
     """template.html d'un composant natif : plugin partagé, pas de `group`, visuel de fond relatif.
     Le CSS du bloc est aussi embarqué (<style>) au cas où le plugin ne serait pas chargé dans l'éditeur."""
     html = re.sub(r"^<!--\s*title:.*?-->\s*", "", block["html"])
-    html = re.sub(r'(<input type="image"[^>]*value=")%s"' % re.escape(PLACEHOLDER_TOKEN), r'\g<1>%s"' % NATIVE_IMAGE, html)
-    html = html.replace(PLACEHOLDER_TOKEN, PLACEHOLDER)
+    # Mobirise réécrit tout src/value comme un chemin relatif au composant : une data-URI serait cassée.
+    html = html.replace(PLACEHOLDER_TOKEN, NATIVE_IMAGE)
 
     def root(m):
         tag = re.sub(r'\s+group="[^"]*"', "", m.group(0))

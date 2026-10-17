@@ -1,7 +1,7 @@
 {
-   "name": "Skyline Blocks v2",
+   "name": "Skyline Blocks v3",
    "alias": "skyline-blocks",
-   "version": 2,
+   "version": 3,
    "appScript": true,
    "minAppVersion": "5.0.0",
    "components": [

@@ -32,7 +32,7 @@ def evaluate_val(v, vals):
 
 
 def render(block):
-    html = re.sub(r"^<!--\s*title:.*?-->\s*", "", block["html"]).replace(sk.PLACEHOLDER_TOKEN, sk.PLACEHOLDER)
+    html = re.sub(r"^<!--\s*title:.*?-->\s*", "", block["html"]).replace(sk.PLACEHOLDER_TOKEN, sk.PLACEHOLDER).replace(sk.NATIVE_IMAGE, sk.PLACEHOLDER)
     vals = sk.parameters(html)
     root_style = sk.preview_style(html)
     html = re.sub(r"<mbr-parameters>.*?</mbr-parameters>", "", html, flags=re.S)
