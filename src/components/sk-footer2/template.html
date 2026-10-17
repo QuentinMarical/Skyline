@@ -1,0 +1,26 @@
+<section class="sk-block sk-footer2 sk-footer" data-bs-version="5.1" global once plugins="skyline">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="5">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="4">
+        <input type="checkbox" title="Show Tagline" name="showTagline" checked>
+        <input type="checkbox" title="Show Legal Line" name="showLegal" checked>
+        <input type="color" title="Background Color" name="bgColor" value="#080866">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-12 col-lg-4" mbr-if="showTagline">
+                <h3 class="sk-footer-title mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-footer-title">Join us! #2027</h3>
+                <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".mbr-text">Your Event Name</p>
+            </div>
+            <div class="col-6 col-lg-3"><ul class="list-unstyled mbr-fonts-style" mbr-theme-style="display-7" mbr-list><li mbr-text><a href="#">About us</a></li><li mbr-text><a href="#">Recruitment</a></li><li mbr-text><a href="#">Contact</a></li></ul></div>
+            <div class="col-6 col-lg-3"><ul class="list-unstyled mbr-fonts-style" mbr-theme-style="display-7" mbr-list><li mbr-text><a href="#">Rules</a></li><li mbr-text><a href="#">Vendor rules</a></li></ul></div>
+            <div class="col-12 col-lg-2"><ul class="list-unstyled sk-legal mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showLegal" mbr-list><li mbr-text><a href="#">Legal notice</a></li></ul></div>
+        </div>
+    </div>
+
+    <style>:root{--sk-navy: #080866; --sk-sky: #38bdf5; --sk-red: #e30512; --sk-ice: #b5cce8; --sk-ice-2: #dce7f5; --sk-ice-3: #f2f7fa; --sk-ink: #111; --sk-muted: #5c6370; --sk-white: #fff; --sk-r-sm: 10px; --sk-r-md: 14px; --sk-r-lg: 18px; --sk-r-pill: 64px; --sk-font-title: "Shrikhand", "Inter", sans-serif; --sk-font-body: "Inter", system-ui, sans-serif; --sk-shadow: 0 8px 24px rgba(8, 8, 102, .12);}.sk-block{font-family: var(--sk-font-body); color: var(--sk-ink); position: relative;}.sk-block :focus-visible{outline: 2px solid var(--sk-navy); outline-offset: 2px;}.sk-block .mbr-overlay{position: absolute; inset: 0; pointer-events: none;}.sk-block > .container,.sk-block > .container-fluid{position: relative; z-index: 1;}.sk-footer{color: #b5b5eb;}.sk-footer a{color: var(--sk-white); text-decoration: none;}.sk-footer a:hover{text-decoration: underline;}.sk-footer .sk-footer-title{font-family: var(--sk-font-title); color: var(--sk-white);}.sk-footer .sk-legal{color: #999; font-size: .85rem;}</style>
+</section>

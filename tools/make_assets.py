@@ -49,4 +49,8 @@ for i, k in enumerate(keys):
     ImageDraw.Draw(mask).rounded_rectangle([0, 0, tw, th], radius=14, fill=255)
     splash.paste(t, (x, y), mask)
 splash.save(os.path.join(sk.ROOT, "src", "splash.jpg"), quality=88)
+# Visuel de remplacement des fonds d'image (référencé par les blocs natifs : ../_images/background.jpg)
+bg_dir = os.path.join(sk.ROOT, "src", "components", "_images")
+os.makedirs(bg_dir, exist_ok=True)
+gradient((1620, 1080), (181, 204, 232), SKY).save(os.path.join(bg_dir, "background.jpg"), quality=82)
 print("assets écrits dans src/")

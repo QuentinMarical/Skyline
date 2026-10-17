@@ -1,0 +1,79 @@
+<section class="sk-block sk-goodies1" data-bs-version="5.1" plugins="skyline">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Subtitle" name="showSubtitle" checked>
+        <input type="checkbox" title="Show Artist Credit" name="showCredit" checked>
+        <input type="checkbox" title="Show Level Badge" name="showLevel" checked>
+        <select title="Items" name="itemsAmount">
+            <option value="4">4</option>
+            <option value="6" selected>6</option>
+        </select>
+        <input type="color" title="Background Color" name="bgColor" value="#ffffff">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center mb-5 text-center">
+            <div class="col-12 col-lg-8">
+                <h2 class="sk-title mbr-section-title mb-3 mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">Goodies</h2>
+                <h3 class="sk-subtitle mbr-section-subtitle mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showSubtitle" data-app-selector=".mbr-section-subtitle">Collect them all.</h3>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-6 col-md-4" mbr-class="{'col-lg-3': itemsAmount == '4' || itemsAmount == '8', 'col-lg-4': itemsAmount == '6'}">
+                <article class="sk-good">
+                    <figure class="sk-good-img mbr-figure"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiA5Jz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyNiNWNjZTgnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMzOGJkZjUnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nOScgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg==" alt="T-shirt"></figure>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-card-title">T-shirt</h4>
+                    <p class="sk-credit mb-1 mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showCredit" data-app-selector=".sk-credit">Illustration: Artist A</p>
+                    <span class="sk-badge mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showLevel">Level 2</span>
+                </article>
+            </div>
+            <div class="col-6 col-md-4" mbr-class="{'col-lg-3': itemsAmount == '4' || itemsAmount == '8', 'col-lg-4': itemsAmount == '6'}">
+                <article class="sk-good">
+                    <figure class="sk-good-img mbr-figure"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiA5Jz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyNiNWNjZTgnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMzOGJkZjUnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nOScgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg==" alt="Hoodie"></figure>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-card-title">Hoodie</h4>
+                    <p class="sk-credit mb-1 mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showCredit" data-app-selector=".sk-credit">Illustration: Artist B</p>
+                    <span class="sk-badge mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showLevel">Level 3</span>
+                </article>
+            </div>
+            <div class="col-6 col-md-4" mbr-class="{'col-lg-3': itemsAmount == '4' || itemsAmount == '8', 'col-lg-4': itemsAmount == '6'}">
+                <article class="sk-good">
+                    <figure class="sk-good-img mbr-figure"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiA5Jz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyNiNWNjZTgnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMzOGJkZjUnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nOScgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg==" alt="Luggage tag"></figure>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-card-title">Luggage tag</h4>
+                    <p class="sk-credit mb-1 mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showCredit" data-app-selector=".sk-credit">Illustration: Artist A</p>
+                    <span class="sk-badge mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showLevel">Level 1</span>
+                </article>
+            </div>
+            <div class="col-6 col-md-4" mbr-class="{'col-lg-3': itemsAmount == '4' || itemsAmount == '8', 'col-lg-4': itemsAmount == '6'}">
+                <article class="sk-good">
+                    <figure class="sk-good-img mbr-figure"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiA5Jz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyNiNWNjZTgnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMzOGJkZjUnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nOScgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg==" alt="Mug"></figure>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-card-title">Mug</h4>
+                    <p class="sk-credit mb-1 mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showCredit" data-app-selector=".sk-credit">Illustration: Artist C</p>
+                    <span class="sk-badge mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showLevel">Level 1</span>
+                </article>
+            </div>
+            <div class="col-6 col-md-4" mbr-class="{'col-lg-3': itemsAmount == '4' || itemsAmount == '8', 'col-lg-4': itemsAmount == '6'}" mbr-if="itemsAmount == '6'">
+                <article class="sk-good">
+                    <figure class="sk-good-img mbr-figure"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiA5Jz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyNiNWNjZTgnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMzOGJkZjUnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nOScgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg==" alt="Backpack"></figure>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-card-title">Backpack</h4>
+                    <p class="sk-credit mb-1 mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showCredit" data-app-selector=".sk-credit">Illustration: Artist B</p>
+                    <span class="sk-badge mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showLevel">Level 3</span>
+                </article>
+            </div>
+            <div class="col-6 col-md-4" mbr-class="{'col-lg-3': itemsAmount == '4' || itemsAmount == '8', 'col-lg-4': itemsAmount == '6'}" mbr-if="itemsAmount == '6'">
+                <article class="sk-good">
+                    <figure class="sk-good-img mbr-figure"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiA5Jz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyNiNWNjZTgnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMzOGJkZjUnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nOScgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg==" alt="Travel pillow"></figure>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-card-title">Travel pillow</h4>
+                    <p class="sk-credit mb-1 mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showCredit" data-app-selector=".sk-credit">Illustration: Artist C</p>
+                    <span class="sk-badge mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showLevel">Level 2</span>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <style>:root{--sk-navy: #080866; --sk-sky: #38bdf5; --sk-red: #e30512; --sk-ice: #b5cce8; --sk-ice-2: #dce7f5; --sk-ice-3: #f2f7fa; --sk-ink: #111; --sk-muted: #5c6370; --sk-white: #fff; --sk-r-sm: 10px; --sk-r-md: 14px; --sk-r-lg: 18px; --sk-r-pill: 64px; --sk-font-title: "Shrikhand", "Inter", sans-serif; --sk-font-body: "Inter", system-ui, sans-serif; --sk-shadow: 0 8px 24px rgba(8, 8, 102, .12);}.sk-block{font-family: var(--sk-font-body); color: var(--sk-ink); position: relative;}.sk-block .sk-title{font-family: var(--sk-font-title); color: var(--sk-navy); font-weight: 400; line-height: 1.05;}.sk-block .sk-subtitle{color: var(--sk-muted);}.sk-block :focus-visible{outline: 2px solid var(--sk-navy); outline-offset: 2px;}.sk-block .mbr-overlay{position: absolute; inset: 0; pointer-events: none;}.sk-block > .container,.sk-block > .container-fluid{position: relative; z-index: 1;}.sk-badge{display: inline-block; padding: .25rem .75rem; border-radius: var(--sk-r-pill); background: var(--sk-red); color: var(--sk-white); font-size: .8rem; font-weight: 700;}.sk-good-img img{width: 100%; height: 100%; object-fit: cover; display: block;}.sk-good{height: 100%;}.sk-good-img{aspect-ratio: 1; margin: 0 0 .75rem; border-radius: var(--sk-r-md); overflow: hidden; background: var(--sk-ice-2);}.sk-credit{color: var(--sk-muted);}.sk-good .sk-badge{background: var(--sk-sky); color: var(--sk-navy);}</style>
+</section>

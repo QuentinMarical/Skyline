@@ -1,0 +1,29 @@
+<section class="sk-block sk-notice1" data-bs-version="5.1" plugins="skyline">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="3">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="3">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <select title="Style" name="noticeStyle">
+            <option value="note" selected>Note</option>
+            <option value="alert">Alert</option>
+            <option value="success">Success</option>
+        </select>
+        <input type="color" title="Background Color" name="bgColor" value="#ffffff">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9">
+                <div class="sk-alert" role="note" mbr-class="{'sk-alert--danger': noticeStyle == 'alert', 'sk-alert--success': noticeStyle == 'success'}">
+                    <h4 class="sk-alert-title mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showTitle" data-app-selector=".sk-alert-title">Please note</h4>
+                    <p class="mbr-text mb-0 mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".mbr-text">Use this banner for conditions, deadlines or important reminders.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>:root{--sk-navy: #080866; --sk-sky: #38bdf5; --sk-red: #e30512; --sk-ice: #b5cce8; --sk-ice-2: #dce7f5; --sk-ice-3: #f2f7fa; --sk-ink: #111; --sk-muted: #5c6370; --sk-white: #fff; --sk-r-sm: 10px; --sk-r-md: 14px; --sk-r-lg: 18px; --sk-r-pill: 64px; --sk-font-title: "Shrikhand", "Inter", sans-serif; --sk-font-body: "Inter", system-ui, sans-serif; --sk-shadow: 0 8px 24px rgba(8, 8, 102, .12);}.sk-block{font-family: var(--sk-font-body); color: var(--sk-ink); position: relative;}.sk-block :focus-visible{outline: 2px solid var(--sk-navy); outline-offset: 2px;}.sk-block .mbr-overlay{position: absolute; inset: 0; pointer-events: none;}.sk-block > .container,.sk-block > .container-fluid{position: relative; z-index: 1;}.sk-alert{border-radius: var(--sk-r-md); padding: 1.25rem 1.5rem; background: var(--sk-ice-2); border-left: 6px solid var(--sk-sky);}.sk-alert--danger{background: rgba(227, 5, 19, .14); border-left-color: var(--sk-red);}.sk-alert--success{background: #dff3e7; border-left-color: #17703f;}.sk-alert .sk-alert-title{font-weight: 700; color: var(--sk-navy); margin-bottom: .25rem;}</style>
+</section>

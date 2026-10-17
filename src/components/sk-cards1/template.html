@@ -1,0 +1,77 @@
+<section class="sk-block sk-cards1" data-bs-version="5.1" data-bg-video="{{bg.type == 'video' && bg.value.url}}" mbr-class="{'mbr-parallax-background': bg.parallax}" plugins="skyline">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Subtitle" name="showSubtitle" checked>
+        <input type="checkbox" title="Show Icons" name="showIcons" checked>
+        <input type="checkbox" title="Show Text" name="showText" checked>
+        <select title="Cards" name="cardsAmount">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+            <option value="4">4</option>
+        </select>
+        <select title="Card Style" name="cardStyle">
+            <option value="soft" selected>Soft</option>
+            <option value="ice">Ice</option>
+            <option value="outline">Outline</option>
+        </select>
+
+        <fieldset type="background" name="bg" parallax>
+            <input type="image" title="Background Image" value="../_images/background.jpg" parallax>
+            <input type="color" title="Background Color" value="#ffffff" selected>
+            <input type="video" title="Background Video" value="http://www.youtube.com/watch?v=uNCr7NdOJgw">
+        </fieldset>
+        <input type="checkbox" title="Overlay" name="overlay" condition="bg.type !== 'color'" checked>
+        <input type="color" title="Overlay Color" name="overlayColor" value="#ffffff" condition="overlay && bg.type !== 'color'">
+        <input type="range" inline title="Opacity" name="overlayOpacity" min="0" max="1" step="0.1" value="0.9" condition="overlay && bg.type !== 'color'">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="mbr-overlay" mbr-if="overlay && bg.type !== 'color'" mbr-style="{'opacity': overlayOpacity, 'background-color': overlayColor}"></div>
+
+    <div class="container">
+        <div class="row justify-content-center mb-5 text-center">
+            <div class="col-12 col-lg-8">
+                <h2 class="sk-title mbr-section-title mb-3 mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">Why join us</h2>
+                <h3 class="sk-subtitle mbr-section-subtitle mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showSubtitle" data-app-selector=".mbr-section-subtitle">Three reasons, one short sentence each.</h3>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6" mbr-class="{'col-lg-3': cardsAmount == '4', 'col-lg-4': cardsAmount == '3'}">
+                <div class="sk-card" mbr-class="{'sk-card--ice': cardStyle == 'ice', 'sk-card--outline': cardStyle == 'outline'}">
+                    <span mbr-if="showIcons" mbr-icon class="sk-icon mbr-iconfont mbri-star"></span>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-card-title">Feature one</h4>
+                    <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showText" data-app-selector=".mbr-text">Short description of the first feature. Keep it to two lines.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6" mbr-if="cardsAmount > 1" mbr-class="{'col-lg-3': cardsAmount == '4', 'col-lg-4': cardsAmount == '3'}">
+                <div class="sk-card" mbr-class="{'sk-card--ice': cardStyle == 'ice', 'sk-card--outline': cardStyle == 'outline'}">
+                    <span mbr-if="showIcons" mbr-icon class="sk-icon mbr-iconfont mbri-globe"></span>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-card-title">Feature two</h4>
+                    <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showText" data-app-selector=".mbr-text">Short description of the second feature. Keep it to two lines.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6" mbr-if="cardsAmount > 2" mbr-class="{'col-lg-3': cardsAmount == '4', 'col-lg-4': cardsAmount == '3'}">
+                <div class="sk-card" mbr-class="{'sk-card--ice': cardStyle == 'ice', 'sk-card--outline': cardStyle == 'outline'}">
+                    <span mbr-if="showIcons" mbr-icon class="sk-icon mbr-iconfont mbri-users"></span>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-card-title">Feature three</h4>
+                    <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showText" data-app-selector=".mbr-text">Short description of the third feature. Keep it to two lines.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6" mbr-if="cardsAmount > 3" mbr-class="{'col-lg-3': cardsAmount == '4', 'col-lg-4': cardsAmount == '3'}">
+                <div class="sk-card" mbr-class="{'sk-card--ice': cardStyle == 'ice', 'sk-card--outline': cardStyle == 'outline'}">
+                    <span mbr-if="showIcons" mbr-icon class="sk-icon mbr-iconfont mbri-calendar"></span>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-card-title">Feature four</h4>
+                    <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showText" data-app-selector=".mbr-text">Short description of the fourth feature. Keep it to two lines.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>:root{--sk-navy: #080866; --sk-sky: #38bdf5; --sk-red: #e30512; --sk-ice: #b5cce8; --sk-ice-2: #dce7f5; --sk-ice-3: #f2f7fa; --sk-ink: #111; --sk-muted: #5c6370; --sk-white: #fff; --sk-r-sm: 10px; --sk-r-md: 14px; --sk-r-lg: 18px; --sk-r-pill: 64px; --sk-font-title: "Shrikhand", "Inter", sans-serif; --sk-font-body: "Inter", system-ui, sans-serif; --sk-shadow: 0 8px 24px rgba(8, 8, 102, .12);}.sk-block{font-family: var(--sk-font-body); color: var(--sk-ink); position: relative;}.sk-block .sk-title{font-family: var(--sk-font-title); color: var(--sk-navy); font-weight: 400; line-height: 1.05;}.sk-block .sk-subtitle{color: var(--sk-muted);}.sk-block :focus-visible{outline: 2px solid var(--sk-navy); outline-offset: 2px;}.sk-block .mbr-overlay{position: absolute; inset: 0; pointer-events: none;}.sk-block > .container,.sk-block > .container-fluid{position: relative; z-index: 1;}.sk-card{background: var(--sk-ice-3); border-radius: var(--sk-r-lg); padding: 2rem; height: 100%;}.sk-card--ice{background: var(--sk-ice-2);}.sk-card--outline{background: transparent; border: 2px solid var(--sk-ice);}.sk-card .sk-card-title{font-weight: 700; color: var(--sk-navy);}.sk-card .sk-icon{font-size: 2.5rem; color: var(--sk-sky); display: block; margin-bottom: 1rem;}</style>
+</section>

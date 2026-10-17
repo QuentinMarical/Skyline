@@ -1,0 +1,44 @@
+<section class="sk-block sk-hero sk-hero1" data-bs-version="5.1" data-bg-video="{{bg.type == 'video' && bg.value.url}}" mbr-class="{'sk-fullscreen': fullScreen, 'mbr-parallax-background': bg.parallax}" plugins="skyline">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="checkbox" title="Full Screen" name="fullScreen" checked>
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="8" condition="fullScreen == false">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="8" condition="fullScreen == false">
+
+        <input type="checkbox" title="Show Capsule" name="showCapsule" checked>
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Text" name="showText" checked>
+        <input type="checkbox" title="Show Buttons" name="showButtons" checked>
+
+        <fieldset type="background" name="bg" parallax>
+            <input type="image" title="Background Image" value="../_images/background.jpg" selected parallax>
+            <input type="color" title="Background Color" value="#dce7f5">
+            <input type="video" title="Background Video" value="http://www.youtube.com/watch?v=uNCr7NdOJgw">
+        </fieldset>
+        <input type="checkbox" title="Overlay" name="overlay" condition="bg.type !== 'color'" checked>
+        <input type="color" title="Overlay Color" name="overlayColor" value="#ffffff" condition="overlay && bg.type !== 'color'">
+        <input type="range" inline title="Opacity" name="overlayOpacity" min="0" max="1" step="0.1" value="0.5" condition="overlay && bg.type !== 'color'">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="mbr-overlay" mbr-if="overlay && bg.type !== 'color'" mbr-style="{'opacity': overlayOpacity, 'background-color': overlayColor}"></div>
+
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-12 col-lg-10">
+                <div class="sk-capsule mb-4 mbr-fonts-style" mbr-if="showCapsule" mbr-theme-style="display-4" data-app-selector=".sk-capsule">
+                    <span>12 – 15 June 2027</span><span>·</span><span>Seaside Congress Center</span>
+                </div>
+                <h1 class="sk-title mbr-section-title mb-4 mbr-fonts-style" mbr-theme-style="display-1" mbr-if="showTitle">Your Event Name</h1>
+                <p class="sk-subtitle mbr-text mb-5 mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showText">A bold, friendly header with a title, a short pitch and clear calls to action. Replace this text with your own.</p>
+                <div class="mbr-section-btn" mbr-if="showButtons" mbr-buttons mbr-theme-style="display-4" data-toolbar="-mbrBtnMove">
+                    <a class="sk-btn sk-btn-primary me-2 mb-2" href="https://mobirise.com">Get your pass</a>
+                    <a class="sk-btn sk-btn-outline mb-2" href="https://mobirise.com">See the programme</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>:root{--sk-navy: #080866; --sk-sky: #38bdf5; --sk-red: #e30512; --sk-ice: #b5cce8; --sk-ice-2: #dce7f5; --sk-ice-3: #f2f7fa; --sk-ink: #111; --sk-muted: #5c6370; --sk-white: #fff; --sk-r-sm: 10px; --sk-r-md: 14px; --sk-r-lg: 18px; --sk-r-pill: 64px; --sk-font-title: "Shrikhand", "Inter", sans-serif; --sk-font-body: "Inter", system-ui, sans-serif; --sk-shadow: 0 8px 24px rgba(8, 8, 102, .12);}.sk-block{font-family: var(--sk-font-body); color: var(--sk-ink); position: relative;}.sk-block .sk-title{font-family: var(--sk-font-title); color: var(--sk-navy); font-weight: 400; line-height: 1.05;}.sk-block .sk-subtitle{color: var(--sk-muted);}.sk-block :focus-visible{outline: 2px solid var(--sk-navy); outline-offset: 2px;}.sk-block .mbr-overlay{position: absolute; inset: 0; pointer-events: none;}.sk-block > .container,.sk-block > .container-fluid{position: relative; z-index: 1;}.sk-btn{display: inline-flex; max-width: 100%; text-align: center; justify-content: center; align-items: center; gap: .5rem; padding: .75rem 1.5rem; border-radius: var(--sk-r-pill); border: 2px solid transparent; font-weight: 500; text-decoration: none; transition: transform .15s, background-color .15s;}.sk-btn:hover{transform: translateY(-1px);}.sk-btn-primary{background: var(--sk-navy); color: var(--sk-white);}.sk-btn-primary:hover{background: #0d0da0; color: var(--sk-white);}.sk-btn-outline{border-color: currentColor; background: transparent; color: var(--sk-navy);}.sk-hero{display: flex; align-items: center; background-size: cover; background-position: center;}.sk-hero.sk-fullscreen{min-height: 100vh;}.sk-hero .sk-title{font-size: clamp(2.25rem, 6vw, 4.5rem);}.sk-capsule{display: inline-flex; align-items: center; gap: .5rem; padding: .5rem 1.25rem; border-radius: 80px; background: rgba(255,255,255,.6); backdrop-filter: blur(12px); color: var(--sk-navy); font-weight: 500;}</style>
+</section>

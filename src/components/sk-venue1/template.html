@@ -1,0 +1,39 @@
+<section class="sk-block sk-venue1" data-bs-version="5.1" plugins="skyline">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Text" name="showText" checked>
+        <input type="checkbox" title="Show Access List" name="showAccess" checked>
+        <input type="checkbox" title="Show Map Placeholder" name="showMap" checked>
+        <select title="Image Side" name="imageSide">
+            <option value="right" selected>Right</option>
+            <option value="left">Left</option>
+        </select>
+        <input type="color" title="Background Color" name="bgColor" value="#ffffff">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row g-4 gx-lg-5 align-items-center" mbr-class="{'flex-row-reverse': imageSide == 'left'}">
+            <div class="col-12 col-lg-6">
+                <h2 class="sk-title mbr-section-title mb-3 mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">The venue</h2>
+                <p class="mbr-text mb-4 mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showText">Describe the venue: its size, its facilities, what makes it a good fit. One short paragraph is enough.</p>
+                <address class="sk-address mb-4 mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-address">123 Example Avenue<br>75000 City</address>
+                <ul class="sk-access list-unstyled mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showAccess" mbr-list>
+                    <li mbr-text><strong>Metro:</strong> lines 1 and 2</li>
+                    <li mbr-text><strong>Train:</strong> lines A and B</li>
+                    <li mbr-text><strong>Bus:</strong> 12 and N34</li>
+                    <li mbr-text><strong>Car:</strong> motorway exit 5</li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-6">
+                <figure class="sk-figure mbr-figure mb-0" mbr-if="showMap"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiA5Jz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyNiNWNjZTgnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMzOGJkZjUnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nOScgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg==" alt="Venue"></figure>
+            </div>
+        </div>
+    </div>
+
+    <style>:root{--sk-navy: #080866; --sk-sky: #38bdf5; --sk-red: #e30512; --sk-ice: #b5cce8; --sk-ice-2: #dce7f5; --sk-ice-3: #f2f7fa; --sk-ink: #111; --sk-muted: #5c6370; --sk-white: #fff; --sk-r-sm: 10px; --sk-r-md: 14px; --sk-r-lg: 18px; --sk-r-pill: 64px; --sk-font-title: "Shrikhand", "Inter", sans-serif; --sk-font-body: "Inter", system-ui, sans-serif; --sk-shadow: 0 8px 24px rgba(8, 8, 102, .12);}.sk-block{font-family: var(--sk-font-body); color: var(--sk-ink); position: relative;}.sk-block .sk-title{font-family: var(--sk-font-title); color: var(--sk-navy); font-weight: 400; line-height: 1.05;}.sk-block :focus-visible{outline: 2px solid var(--sk-navy); outline-offset: 2px;}.sk-block .mbr-overlay{position: absolute; inset: 0; pointer-events: none;}.sk-block > .container,.sk-block > .container-fluid{position: relative; z-index: 1;}.sk-address{font-style: normal; font-weight: 500; color: var(--sk-navy);}.sk-access li{margin-bottom: .5rem;}.sk-figure{margin: 0; border-radius: var(--sk-r-lg); overflow: hidden;}.sk-figure img{width: 100%; height: 100%; object-fit: cover; display: block;}</style>
+</section>

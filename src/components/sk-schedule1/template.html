@@ -1,0 +1,45 @@
+<section class="sk-block sk-schedule1" data-bs-version="5.1" plugins="skyline">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Subtitle" name="showSubtitle" checked>
+        <select title="Days" name="daysAmount">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+        </select>
+        <input type="color" title="Background Color" name="bgColor" value="#ffffff">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center mb-5 text-center">
+            <div class="col-12 col-lg-8">
+                <h2 class="sk-title mbr-section-title mb-3 mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">Programme</h2>
+                <h3 class="sk-subtitle mbr-section-subtitle mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showSubtitle" data-app-selector=".mbr-section-subtitle">Two days of activities.</h3>
+            </div>
+        </div>
+        <div class="row g-4 gx-lg-5">
+            <div class="col-12 col-lg-6">
+                <h4 class="sk-day mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-day">Friday</h4>
+                <ul class="sk-schedule list-unstyled mbr-fonts-style" mbr-theme-style="display-7">
+                    <li class="sk-event" data-cat="Main"><span class="sk-time">10:00</span><span class="sk-event-name">Opening ceremony</span><span class="sk-chip">Main</span></li>
+                    <li class="sk-event" data-cat="Panel"><span class="sk-time">11:30</span><span class="sk-event-name">Panel: getting started</span><span class="sk-chip">Panel</span></li>
+                    <li class="sk-event" data-cat="Workshop"><span class="sk-time">14:00</span><span class="sk-event-name">Workshop</span><span class="sk-chip">Workshop</span></li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-6" mbr-if="daysAmount > 1">
+                <h4 class="sk-day mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-day">Saturday</h4>
+                <ul class="sk-schedule list-unstyled mbr-fonts-style" mbr-theme-style="display-7">
+                    <li class="sk-event" data-cat="Main"><span class="sk-time">09:30</span><span class="sk-event-name">Morning session</span><span class="sk-chip">Main</span></li>
+                    <li class="sk-event" data-cat="Event"><span class="sk-time">13:00</span><span class="sk-event-name">Parade</span><span class="sk-chip">Event</span></li>
+                    <li class="sk-event" data-cat="Dance"><span class="sk-time">21:00</span><span class="sk-event-name">Party</span><span class="sk-chip">Dance</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <style>:root{--sk-navy: #080866; --sk-sky: #38bdf5; --sk-red: #e30512; --sk-ice: #b5cce8; --sk-ice-2: #dce7f5; --sk-ice-3: #f2f7fa; --sk-ink: #111; --sk-muted: #5c6370; --sk-white: #fff; --sk-r-sm: 10px; --sk-r-md: 14px; --sk-r-lg: 18px; --sk-r-pill: 64px; --sk-font-title: "Shrikhand", "Inter", sans-serif; --sk-font-body: "Inter", system-ui, sans-serif; --sk-shadow: 0 8px 24px rgba(8, 8, 102, .12);}.sk-block{font-family: var(--sk-font-body); color: var(--sk-ink); position: relative;}.sk-block .sk-title{font-family: var(--sk-font-title); color: var(--sk-navy); font-weight: 400; line-height: 1.05;}.sk-block .sk-subtitle{color: var(--sk-muted);}.sk-block :focus-visible{outline: 2px solid var(--sk-navy); outline-offset: 2px;}.sk-block .mbr-overlay{position: absolute; inset: 0; pointer-events: none;}.sk-block > .container,.sk-block > .container-fluid{position: relative; z-index: 1;}.sk-day{font-family: var(--sk-font-title); color: var(--sk-navy); margin-bottom: 1rem;}.sk-schedule{margin: 0;}.sk-event{display: grid; grid-template-columns: 4.5rem 1fr auto; gap: 1rem; align-items: center; padding: .85rem 1rem; border-radius: var(--sk-r-sm); background: var(--sk-ice-3); margin-bottom: .5rem;}.sk-time{color: #0094d4; font-weight: 700; font-variant-numeric: tabular-nums;}.sk-chip{padding: .15rem .7rem; border-radius: var(--sk-r-pill); font-size: .75rem; font-weight: 700; background: var(--sk-sky); color: var(--sk-navy);}.sk-event[data-cat="Panel"] .sk-chip{background: #e57c9b; color: #fff;}.sk-event[data-cat="Dance"] .sk-chip{background: #6fcf97;}.sk-event[data-cat="Workshop"] .sk-chip{background: #e8c23a;}.sk-event[data-cat="Event"] .sk-chip{background: #f2994a;}@media (max-width: 575px){.sk-event{grid-template-columns: 4rem 1fr;}.sk-event .sk-chip{grid-column: 2; justify-self: start;}}</style>
+</section>

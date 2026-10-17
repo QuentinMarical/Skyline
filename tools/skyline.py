@@ -165,3 +165,38 @@ def shipped_html(block):
     html = re.sub(r"^<!--\s*title:.*?-->\s*", "", block["html"]).replace(PLACEHOLDER_TOKEN, PLACEHOLDER)
     css = css_for(html)
     return re.sub(r"\s*</section>\s*$", "\n\n    <style>%s</style>\n</section>\n" % css, html.rstrip() + "\n", count=1)
+
+
+# ---------- Format natif : components/<bloc>/{template.html, style.less, thumb.png} ----------
+
+PLUGIN = "skyline"          # nom du plugin (CSS partagé) référencé par l'attribut plugins=""
+NATIVE_GROUP = "Skyline"    # groupe affiché dans le menu « Add Block »
+NATIVE_IMAGE = "../_images/background.jpg"
+
+
+def to_less(styles, indent=0):
+    """Convertit `_styles` (dict) en contenu de style.less."""
+    pad = "  " * indent
+    out = []
+    for k, v in styles.items():
+        if isinstance(v, dict):
+            out.append("%s%s {\n%s%s}" % (pad, k, to_less(v, indent + 1), pad))
+        else:
+            out.append("%s%s: %s;" % (pad, k, v))
+    return "\n".join(out) + ("\n" if indent else "\n")
+
+
+def native_html(block):
+    """template.html d'un composant natif : plugin partagé, pas de `group`, visuel de fond relatif.
+    Le CSS du bloc est aussi embarqué (<style>) au cas où le plugin ne serait pas chargé dans l'éditeur."""
+    html = re.sub(r"^<!--\s*title:.*?-->\s*", "", block["html"])
+    html = re.sub(r'(<input type="image"[^>]*value=")%s"' % re.escape(PLACEHOLDER_TOKEN), r'\g<1>%s"' % NATIVE_IMAGE, html)
+    html = html.replace(PLACEHOLDER_TOKEN, PLACEHOLDER)
+
+    def root(m):
+        tag = re.sub(r'\s+group="[^"]*"', "", m.group(0))
+        return tag[:-1] + ' plugins="%s">' % PLUGIN
+
+    html = re.sub(r"<section [^>]*>", root, html, count=1)
+    css = css_for(html)
+    return re.sub(r"\s*</section>\s*$", "\n\n    <style>%s</style>\n</section>\n" % css, html.rstrip() + "\n", count=1)

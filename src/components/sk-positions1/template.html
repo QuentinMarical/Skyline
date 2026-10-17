@@ -1,0 +1,85 @@
+<section class="sk-block sk-positions1" data-bs-version="5.1" plugins="skyline">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Subtitle" name="showSubtitle" checked>
+        <input type="range" inline title="Positions" name="jobs" min="1" max="5" step="1" value="3">
+        <input type="color" title="Background Color" name="bgColor" value="#ffffff">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center mb-5 text-center">
+            <div class="col-12 col-lg-8">
+                <h2 class="sk-title mbr-section-title mb-3 mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">Open positions</h2>
+                <h3 class="sk-subtitle mbr-section-subtitle mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showSubtitle" data-app-selector=".mbr-section-subtitle">Click a title to read the details.</h3>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9">
+                <div class="accordion sk-faq" id="sk-jobs-acc">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header"><button class="accordion-button mbr-fonts-style" mbr-theme-style="display-7" type="button" data-bs-toggle="collapse" data-bs-target="#sk-job-1" aria-expanded="true" aria-controls="sk-job-1">Safety <span class="sk-count ms-2">(10)</span></button></h3>
+                        <div id="sk-job-1" class="accordion-collapse collapse show" data-bs-parent="#sk-jobs-acc">
+                            <div class="accordion-body mbr-fonts-style" mbr-theme-style="display-7">
+                                <h4 class="sk-sub">Key responsibilities</h4>
+                                <ul><li><strong>Before:</strong> prepare and plan.</li><li><strong>During:</strong> run the activity on site.</li><li><strong>After:</strong> report and hand over.</li></ul>
+                                <h4 class="sk-sub">Skills and profile</h4>
+                                <ul><li><strong>Know-how:</strong> relevant experience.</li><li><strong>Soft skills:</strong> teamwork and reliability.</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item" mbr-if="jobs > 1">
+                        <h3 class="accordion-header"><button class="accordion-button collapsed mbr-fonts-style" mbr-theme-style="display-7" type="button" data-bs-toggle="collapse" data-bs-target="#sk-job-2" aria-expanded="false" aria-controls="sk-job-2">Logistics <span class="sk-count ms-2">(4)</span></button></h3>
+                        <div id="sk-job-2" class="accordion-collapse collapse" data-bs-parent="#sk-jobs-acc">
+                            <div class="accordion-body mbr-fonts-style" mbr-theme-style="display-7">
+                                <h4 class="sk-sub">Key responsibilities</h4>
+                                <ul><li><strong>Before:</strong> prepare and plan.</li><li><strong>During:</strong> run the activity on site.</li><li><strong>After:</strong> report and hand over.</li></ul>
+                                <h4 class="sk-sub">Skills and profile</h4>
+                                <ul><li><strong>Know-how:</strong> relevant experience.</li><li><strong>Soft skills:</strong> teamwork and reliability.</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item" mbr-if="jobs > 2">
+                        <h3 class="accordion-header"><button class="accordion-button collapsed mbr-fonts-style" mbr-theme-style="display-7" type="button" data-bs-toggle="collapse" data-bs-target="#sk-job-3" aria-expanded="false" aria-controls="sk-job-3">Operations <span class="sk-count ms-2">(5)</span></button></h3>
+                        <div id="sk-job-3" class="accordion-collapse collapse" data-bs-parent="#sk-jobs-acc">
+                            <div class="accordion-body mbr-fonts-style" mbr-theme-style="display-7">
+                                <h4 class="sk-sub">Key responsibilities</h4>
+                                <ul><li><strong>Before:</strong> prepare and plan.</li><li><strong>During:</strong> run the activity on site.</li><li><strong>After:</strong> report and hand over.</li></ul>
+                                <h4 class="sk-sub">Skills and profile</h4>
+                                <ul><li><strong>Know-how:</strong> relevant experience.</li><li><strong>Soft skills:</strong> teamwork and reliability.</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item" mbr-if="jobs > 3">
+                        <h3 class="accordion-header"><button class="accordion-button collapsed mbr-fonts-style" mbr-theme-style="display-7" type="button" data-bs-toggle="collapse" data-bs-target="#sk-job-4" aria-expanded="false" aria-controls="sk-job-4">Registration <span class="sk-count ms-2">(6)</span></button></h3>
+                        <div id="sk-job-4" class="accordion-collapse collapse" data-bs-parent="#sk-jobs-acc">
+                            <div class="accordion-body mbr-fonts-style" mbr-theme-style="display-7">
+                                <h4 class="sk-sub">Key responsibilities</h4>
+                                <ul><li><strong>Before:</strong> prepare and plan.</li><li><strong>During:</strong> run the activity on site.</li><li><strong>After:</strong> report and hand over.</li></ul>
+                                <h4 class="sk-sub">Skills and profile</h4>
+                                <ul><li><strong>Know-how:</strong> relevant experience.</li><li><strong>Soft skills:</strong> teamwork and reliability.</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item" mbr-if="jobs > 4">
+                        <h3 class="accordion-header"><button class="accordion-button collapsed mbr-fonts-style" mbr-theme-style="display-7" type="button" data-bs-toggle="collapse" data-bs-target="#sk-job-5" aria-expanded="false" aria-controls="sk-job-5">Technology <span class="sk-count ms-2">(2)</span></button></h3>
+                        <div id="sk-job-5" class="accordion-collapse collapse" data-bs-parent="#sk-jobs-acc">
+                            <div class="accordion-body mbr-fonts-style" mbr-theme-style="display-7">
+                                <h4 class="sk-sub">Key responsibilities</h4>
+                                <ul><li><strong>Before:</strong> prepare and plan.</li><li><strong>During:</strong> run the activity on site.</li><li><strong>After:</strong> report and hand over.</li></ul>
+                                <h4 class="sk-sub">Skills and profile</h4>
+                                <ul><li><strong>Know-how:</strong> relevant experience.</li><li><strong>Soft skills:</strong> teamwork and reliability.</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>:root{--sk-navy: #080866; --sk-sky: #38bdf5; --sk-red: #e30512; --sk-ice: #b5cce8; --sk-ice-2: #dce7f5; --sk-ice-3: #f2f7fa; --sk-ink: #111; --sk-muted: #5c6370; --sk-white: #fff; --sk-r-sm: 10px; --sk-r-md: 14px; --sk-r-lg: 18px; --sk-r-pill: 64px; --sk-font-title: "Shrikhand", "Inter", sans-serif; --sk-font-body: "Inter", system-ui, sans-serif; --sk-shadow: 0 8px 24px rgba(8, 8, 102, .12);}.sk-block{font-family: var(--sk-font-body); color: var(--sk-ink); position: relative;}.sk-block .sk-title{font-family: var(--sk-font-title); color: var(--sk-navy); font-weight: 400; line-height: 1.05;}.sk-block .sk-subtitle{color: var(--sk-muted);}.sk-block :focus-visible{outline: 2px solid var(--sk-navy); outline-offset: 2px;}.sk-block .mbr-overlay{position: absolute; inset: 0; pointer-events: none;}.sk-block > .container,.sk-block > .container-fluid{position: relative; z-index: 1;}.sk-faq .accordion-item{border: 0; background: rgba(181, 204, 232, .17); border-radius: var(--sk-r-md) !important; margin-bottom: .75rem; overflow: hidden;}.sk-faq .accordion-button{background: transparent; font-weight: 700; color: var(--sk-navy); box-shadow: none;}.sk-faq .accordion-button:not(.collapsed){color: var(--sk-navy); background: rgba(181, 204, 232, .35);}.sk-positions1 .accordion-body .sk-sub{font-size: 1rem; font-weight: 700; color: var(--sk-navy); margin: 1rem 0 .5rem;}.sk-positions1 .accordion-body .sk-sub:first-child{margin-top: 0;}.sk-count{color: var(--sk-muted); font-weight: 400;}</style>
+</section>

@@ -1,0 +1,32 @@
+<section class="sk-block sk-menu sk-menu1" data-bs-version="5.1" global once plugins="skyline">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="checkbox" title="Sticky" name="sticky" checked>
+        <input type="checkbox" title="Show Button" name="showButton" checked>
+        <input type="range" inline title="Menu Items" name="menuItems" min="1" max="8" step="1" value="5">
+        <input type="color" title="Background Color" name="bgColor" value="#ffffff">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <nav class="navbar navbar-expand-lg container" mbr-style="{'background-color': bgColor}">
+        <a class="navbar-brand mbr-fonts-style" mbr-theme-style="display-5" href="#" data-app-selector=".navbar-brand">Brand</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sk-nav" aria-controls="sk-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="sk-nav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center" mbr-list mbr-list-grow="menuItems">
+                <li class="nav-item" mbr-text><a class="nav-link mbr-fonts-style" mbr-theme-style="display-4" href="#">Home</a></li>
+                <li class="nav-item" mbr-text><a class="nav-link mbr-fonts-style" mbr-theme-style="display-4" href="#">About</a></li>
+                <li class="nav-item" mbr-text><a class="nav-link mbr-fonts-style" mbr-theme-style="display-4" href="#">Programme</a></li>
+                <li class="nav-item" mbr-text><a class="nav-link mbr-fonts-style" mbr-theme-style="display-4" href="#">Tickets</a></li>
+                <li class="nav-item" mbr-text><a class="nav-link mbr-fonts-style" mbr-theme-style="display-4" href="#">FAQ</a></li>
+            </ul>
+            <div class="mbr-section-btn ms-lg-3" mbr-if="showButton" mbr-buttons mbr-theme-style="display-4" data-toolbar="-mbrBtnMove,-mbrBtnAdd">
+                <a class="sk-btn sk-btn-primary" href="#">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <style>:root{--sk-navy: #080866; --sk-sky: #38bdf5; --sk-red: #e30512; --sk-ice: #b5cce8; --sk-ice-2: #dce7f5; --sk-ice-3: #f2f7fa; --sk-ink: #111; --sk-muted: #5c6370; --sk-white: #fff; --sk-r-sm: 10px; --sk-r-md: 14px; --sk-r-lg: 18px; --sk-r-pill: 64px; --sk-font-title: "Shrikhand", "Inter", sans-serif; --sk-font-body: "Inter", system-ui, sans-serif; --sk-shadow: 0 8px 24px rgba(8, 8, 102, .12);}.sk-block{font-family: var(--sk-font-body); color: var(--sk-ink); position: relative;}.sk-block :focus-visible{outline: 2px solid var(--sk-navy); outline-offset: 2px;}.sk-block .mbr-overlay{position: absolute; inset: 0; pointer-events: none;}.sk-block > .container,.sk-block > .container-fluid{position: relative; z-index: 1;}.sk-btn{display: inline-flex; max-width: 100%; text-align: center; justify-content: center; align-items: center; gap: .5rem; padding: .75rem 1.5rem; border-radius: var(--sk-r-pill); border: 2px solid transparent; font-weight: 500; text-decoration: none; transition: transform .15s, background-color .15s;}.sk-btn:hover{transform: translateY(-1px);}.sk-btn-primary{background: var(--sk-navy); color: var(--sk-white);}.sk-btn-primary:hover{background: #0d0da0; color: var(--sk-white);}.sk-menu{position: sticky; top: 0; z-index: 1000; background: var(--sk-white); box-shadow: 0 1px 0 rgba(0,0,0,.06);}.sk-menu .navbar{min-height: 64px;}.sk-menu .nav-link{color: #444; font-weight: 500;}.sk-menu .nav-link:hover{color: var(--sk-navy);}.sk-menu .navbar-brand{font-family: var(--sk-font-title); color: var(--sk-navy); font-size: 1.5rem;}</style>
+</section>

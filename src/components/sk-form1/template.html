@@ -1,0 +1,38 @@
+<section class="sk-block sk-form1" data-bs-version="5.1" plugins="skyline">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Subtitle" name="showSubtitle" checked>
+        <input type="checkbox" title="Show Phone Field" name="showPhone">
+        <input type="color" title="Background Color" name="bgColor" value="#f2f7fa">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center mb-5 text-center">
+            <div class="col-12 col-lg-8">
+                <h2 class="sk-title mbr-section-title mb-3 mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">Contact us</h2>
+                <h3 class="sk-subtitle mbr-section-subtitle mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showSubtitle" data-app-selector=".mbr-section-subtitle">We usually reply within two days.</h3>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div mbr-form class="col-12 col-lg-8">
+                <div data-form-alert hidden>Thanks for filling out the form!</div>
+                <form class="mbr-form sk-form" action method="post" name="Contact Form">
+                    <div class="row g-3">
+                        <div class="col-md-6"><label class="form-label" for="sk-name">Name</label><input class="form-control" type="text" name="name" id="sk-name" required></div>
+                        <div class="col-md-6"><label class="form-label" for="sk-email">Email</label><input class="form-control" type="email" name="email" id="sk-email" required></div>
+                        <div class="col-12" mbr-if="showPhone"><label class="form-label" for="sk-phone">Phone</label><input class="form-control" type="tel" name="phone" id="sk-phone"></div>
+                        <div class="col-12"><label class="form-label" for="sk-message">Message</label><textarea class="form-control" name="message" id="sk-message" rows="5"></textarea></div>
+                        <div class="col-12 text-center mbr-section-btn" mbr-buttons mbr-theme-style="display-4" data-toolbar="-mbrBtnMove,-mbrBtnAdd"><button type="submit" class="sk-btn sk-btn-primary">Send</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <style>:root{--sk-navy: #080866; --sk-sky: #38bdf5; --sk-red: #e30512; --sk-ice: #b5cce8; --sk-ice-2: #dce7f5; --sk-ice-3: #f2f7fa; --sk-ink: #111; --sk-muted: #5c6370; --sk-white: #fff; --sk-r-sm: 10px; --sk-r-md: 14px; --sk-r-lg: 18px; --sk-r-pill: 64px; --sk-font-title: "Shrikhand", "Inter", sans-serif; --sk-font-body: "Inter", system-ui, sans-serif; --sk-shadow: 0 8px 24px rgba(8, 8, 102, .12);}.sk-block{font-family: var(--sk-font-body); color: var(--sk-ink); position: relative;}.sk-block .sk-title{font-family: var(--sk-font-title); color: var(--sk-navy); font-weight: 400; line-height: 1.05;}.sk-block .sk-subtitle{color: var(--sk-muted);}.sk-block :focus-visible{outline: 2px solid var(--sk-navy); outline-offset: 2px;}.sk-block .mbr-overlay{position: absolute; inset: 0; pointer-events: none;}.sk-block > .container,.sk-block > .container-fluid{position: relative; z-index: 1;}.sk-btn{display: inline-flex; max-width: 100%; text-align: center; justify-content: center; align-items: center; gap: .5rem; padding: .75rem 1.5rem; border-radius: var(--sk-r-pill); border: 2px solid transparent; font-weight: 500; text-decoration: none; transition: transform .15s, background-color .15s;}.sk-btn:hover{transform: translateY(-1px);}.sk-btn-primary{background: var(--sk-navy); color: var(--sk-white);}.sk-btn-primary:hover{background: #0d0da0; color: var(--sk-white);}.sk-form .form-label{font-weight: 500; color: var(--sk-navy);}.sk-form .form-control{border: 1px solid var(--sk-ice); border-radius: var(--sk-r-sm); padding: .75rem 1rem;}.sk-form .form-control:focus{border-color: var(--sk-navy); box-shadow: 0 0 0 .2rem rgba(56, 189, 245, .3);}</style>
+</section>

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Construit l'extension Mobirise (src/app.js) et, avec --zip, le fichier importable .mbrext.
+"""Construit l'extension Mobirise (src/components, src/plugins, src/params.json, src/app.js) et, avec --zip, le fichier importable .mbrext.
 
   python3 -I tools/build_extension.py              régénère src/app.js
   python3 -I tools/build_extension.py --zip        + écrit dist/skyline-blocks.mbrext
@@ -9,6 +9,7 @@ import argparse
 import base64
 import json
 import os
+import shutil
 import sys
 import zipfile
 
@@ -42,6 +43,39 @@ for group, path in sk.block_files():
         "html": sk.shipped_html(b),
     }
 
+# ---- Blocs natifs : src/components/<bloc>/{template.html, style.less, thumb.png} + plugin CSS ----
+comp_root = os.path.join(SRC, "components")
+os.makedirs(comp_root, exist_ok=True)
+for d in os.listdir(comp_root):  # repart d'un état propre (le dossier _images est conservé)
+    if d.startswith("sk-"):
+        shutil.rmtree(os.path.join(comp_root, d))
+components = []
+for group, path in sk.block_files():
+    b = sk.load_block(group, path)
+    native_thumb = os.path.join(THUMBS, b["key"] + ".png")
+    if not os.path.exists(native_thumb):
+        sys.exit("Miniature manquante : %s (lancer tools/make_thumbs.py)" % native_thumb)
+    d = os.path.join(comp_root, b["key"])
+    os.makedirs(d)
+    open(os.path.join(d, "template.html"), "w", encoding="utf-8").write(sk.native_html(b))
+    open(os.path.join(d, "style.less"), "w", encoding="utf-8").write(sk.to_less(b["styles"]) if b["styles"] else "")
+    shutil.copyfile(native_thumb, os.path.join(d, "thumb.png"))
+    components.append({"path": "components/" + b["key"], "_group": sk.NATIVE_GROUP, "_isSecondary": True})
+if not os.path.exists(os.path.join(comp_root, "_images", "background.jpg")):
+    sys.exit("src/components/_images/background.jpg manquant (lancer tools/make_assets.py)")
+
+plug_dir = os.path.join(SRC, "plugins", sk.PLUGIN)
+os.makedirs(plug_dir, exist_ok=True)
+shutil.copyfile(sk.CSS_FILE, os.path.join(plug_dir, "skyline.css"))
+json.dump([{"name": sk.PLUGIN, "priority": 3000, "files": [{"src": sk.PLUGIN + "/skyline.css"}]}],
+          open(os.path.join(SRC, "plugins", "plugin.json"), "w"), indent=4)
+
+params["components"] = components
+params["plugins"] = ["plugins"]
+json.dump(params, open(os.path.join(SRC, "params.json"), "w", encoding="utf-8"), indent=3, ensure_ascii=False)
+open(os.path.join(SRC, "params.json"), "a").write("\n")
+print("src/components :", len(components), "blocs natifs, groupe", sk.NATIVE_GROUP)
+
 groups = [g for g in sk.GROUP_ORDER if any(v["group"] == g for v in blocks.values())]
 tpl = open(os.path.join(sk.ROOT, "tools", "app.template.js"), encoding="utf-8").read()
 js = (tpl.replace("__VERSION__", str(params["version"]))
@@ -53,8 +87,9 @@ print("src/app.js :", len(blocks), "blocs,", len(js) // 1024, "Ko")
 if args.zip:
     os.makedirs(os.path.join(sk.ROOT, "dist"), exist_ok=True)
     out = os.path.join(sk.ROOT, "dist", ALIAS + ".mbrext")
-    files = sorted(f for f in os.listdir(SRC) if os.path.isfile(os.path.join(SRC, f)))
-    for needed in ("params.json", "app.js", "splash.html", "thumbnail.jpg", "splash.jpg"):
+    files = sorted(os.path.relpath(os.path.join(dp, f), SRC).replace(os.sep, "/")
+                   for dp, _, fs in os.walk(SRC) for f in fs)
+    for needed in ("params.json", "app.js", "splash.html", "thumbnail.jpg", "splash.jpg", "plugins/plugin.json"):
         if needed not in files:
             sys.exit("Fichier manquant dans src/ : " + needed)
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:

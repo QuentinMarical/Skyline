@@ -8,7 +8,8 @@ Extension **Mobirise 6** : une galerie de 21 blocs prêts à l'emploi (menu, ban
 
 1. Télécharger le fichier : [`skyline-blocks.mbrext`](https://github.com/QuentinMarical/Skyline/releases/latest/download/skyline-blocks.mbrext)
 2. Dans Mobirise, ouvrir le menu **Extensions** et installer le fichier `.mbrext` (ou le glisser dans la fenêtre), puis redémarrer Mobirise.
-3. Dans un projet, cliquer sur le bouton **cube** ajouté dans la barre du haut (à côté des icônes d'appareils), choisir un bloc, puis **ADD BLOCK TO PAGE**.
+3. Dans un projet, ouvrir le menu **Add Block** (le « + » de la page) : les 21 blocs sont dans le groupe **Skyline**.
+   Autre méthode : le bouton **cube** ajouté dans la barre du haut (à côté des icônes d'appareils) ouvre une galerie avec miniatures ; choisir un bloc puis **ADD BLOCK TO PAGE**.
 4. Personnaliser le bloc avec l'icône d'engrenage (nombre de cartes, couleurs, fond, afficher/masquer le titre, etc.).
 
 L'extension requiert un thème Mobirise basé sur **Bootstrap 5** (les thèmes de la série 5/6) ; les anciens thèmes ne sont pas pris en charge.
@@ -43,22 +44,27 @@ Les polices (titres / texte) se règlent dans Mobirise via le *Style Editor* ; l
 ## Organisation du dépôt
 
 ```
-src/                      contenu de l'extension (ce qui est zippé dans le .mbrext)
-  params.json               nom, alias, version, version minimale de Mobirise
-  app.js                    GÉNÉRÉ : galerie + blocs embarqués
-  splash.html, splash.jpg   page de présentation dans le gestionnaire d'extensions
-  thumbnail.jpg             icône de l'extension
+src/                          contenu de l'extension (ce qui est zippé dans le .mbrext)
+  params.json                   nom, alias, version ; liste des composants (généré)
+  components/<bloc>/            GÉNÉRÉ : template.html, style.less, thumb.png (menu « Add Block »)
+  components/_images/           visuel de remplacement des fonds
+  plugins/                      GÉNÉRÉ : plugin.json + skyline.css (feuille de style partagée)
+  app.js                        GÉNÉRÉ : galerie (bouton cube) avec les blocs embarqués
+  splash.html, splash.jpg       page de présentation dans le gestionnaire d'extensions
+  thumbnail.jpg                 icône de l'extension
 blocks/<Groupe>/<bloc>.html   source des blocs (balise <section> + <mbr-parameters>)
-theme/skyline.css             jetons (--sk-*) et styles ; chaque bloc n'embarque que ses règles
+theme/skyline.css             jetons (--sk-*) et styles
 tools/
-  skyline.py                  fonctions communes (lecture des blocs, styles, CSS)
-  build_extension.py          génère src/app.js et dist/skyline-blocks.mbrext
-  build_preview.py            génère preview/index.html (aperçu navigateur)
-  make_thumbs.py, shoot.js    miniatures de la galerie (tools/thumbs/*.jpg)
-  make_assets.py              icône et image d'accueil
-  test_extension.js           test de app.js avec un faux Mobirise (jsdom)
-preview/                    aperçu navigateur (généré)
-.github/workflows/build.yml construit le .mbrext et crée la release sur un tag vN
+  skyline.py                    fonctions communes (lecture des blocs, styles, CSS)
+  build_extension.py            génère src/ et dist/skyline-blocks.mbrext
+  build_preview.py              génère preview/index.html (aperçu navigateur)
+  validate.py                   contrôle statique des blocs et de src/
+  make_thumbs.py, shoot.js      miniatures (tools/thumbs/*.jpg et *.png)
+  make_assets.py                icône, image d'accueil, visuel de fond
+  test_extension.js             test de app.js avec un faux Mobirise (jsdom)
+  test_less.js                  compile chaque style.less avec LESS
+preview/                      aperçu navigateur (généré)
+.github/workflows/build.yml   construit le .mbrext et crée la release sur un tag vN
 ```
 
 ## Développer
@@ -66,25 +72,26 @@ preview/                    aperçu navigateur (généré)
 ```bash
 python3 -I tools/build_preview.py      # aperçu navigateur : preview/index.html
 python3 -I tools/make_thumbs.py        # après un changement visuel (Node + Playwright + Pillow)
-python3 -I tools/build_extension.py    # régénère src/app.js (à committer)
+python3 -I tools/build_extension.py    # régénère src/ (à committer)
+python3 -I tools/validate.py           # contrôle des blocs
 python3 -I tools/build_extension.py --zip   # + dist/skyline-blocks.mbrext
 ```
 
-Ajouter un bloc : créer `blocks/<Groupe>/sk-xxx.html` (première ligne `<!-- title: Nom affiché -->`), le titre et les options suivent le format Mobirise (`<mbr-parameters>`, `mbr-if`, `mbr-class`, …). Les marges (`paddingTop`/`paddingBottom`) et le fond (`bgColor` ou fieldset `bg`) sont convertis automatiquement en `_styles`. Puis lancer `make_thumbs.py` et `build_extension.py`.
+Ajouter un bloc : créer `blocks/<Groupe>/sk-xxx.html` (première ligne `<!-- title: Nom affiché -->`), le titre et les options suivent le format Mobirise (`<mbr-parameters>`, `mbr-if`, `mbr-class`, …). Les marges (`paddingTop`/`paddingBottom`) et le fond (`bgColor` ou fieldset `bg`) sont convertis automatiquement en `_styles`. Puis lancer `make_thumbs.py`, `build_extension.py` et `validate.py`.
 
 ## Publier une version
 
 1. Incrémenter `version` et `name` dans `src/params.json`, ajouter l'entrée au `CHANGELOG.md`.
-2. Régénérer `src/app.js`, committer.
+2. Régénérer `src/` (`build_extension.py`), committer.
 3. Créer et pousser le tag : `git tag v2 && git push origin v2`.
 
 Le workflow construit `skyline-blocks.mbrext` et le publie dans la release (le lien `releases/latest/download/skyline-blocks.mbrext` pointe ensuite toujours sur la dernière version).
 
 ## Compatibilité
 
-- Le format d'extension (`params.json`, `app.js` avec `defineM` / `mbrApp.regExtension`, bouton dans `.navbar-devices`, import d'un composant `_customHTML` + `_styles`) est celui de l'extension [Design Blocks](https://github.com/witsec/mobirise-design-blocks) de witsec, maintenue jusqu'à Mobirise 6.0.4 et après.
-- Testé : le script de l'extension (galerie, sélection, ajout du composant, identifiants uniques) avec un faux environnement Mobirise ; le rendu des blocs dans Chromium.
-- **Non testé dans l'application Mobirise 6.1.12 elle-même.** Signaler tout bloc dont les options ne réagissent pas.
+- Les blocs suivent le format natif des extensions Mobirise à composants (`components/<bloc>/template.html` + `style.less` + `thumb.png`, déclarés dans `params.json`, feuille de style via `plugins/`), comme l'extension [Mailform](https://github.com/witsec/mobirise-mailform) de witsec. La galerie (bouton cube) reprend la méthode de [Design Blocks](https://github.com/witsec/mobirise-design-blocks), maintenue jusqu'à Mobirise 6.0.4 et après.
+- Vérifié hors de Mobirise : script de la galerie (faux Mobirise), contrôle statique des blocs (options déclarées, balises équilibrées), compilation LESS de chaque `style.less`, rendu des blocs dans Chromium.
+- **Non testé dans l'application Mobirise 6.1.12 elle-même.** Si les blocs n'apparaissent pas ou qu'une option ne réagit pas, le signaler avec la version de Mobirise et le thème utilisé.
 
 ## Crédits et licence
 

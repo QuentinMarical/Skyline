@@ -26,4 +26,11 @@ with tempfile.TemporaryDirectory() as tmp:
         h = max(1, round(im.height * W / im.width))
         im = im.resize((W, h), Image.LANCZOS).crop((0, 0, W, min(h, H_MAX)))
         im.save(os.path.join(out_dir, k + ".jpg"), quality=72, optimize=True)
-print(len(keys), "miniatures dans", out_dir)
+        # miniature du menu « Add Block » : 500x355, haut du bloc, fond neutre si le bloc est plus bas
+        big = Image.open(os.path.join(tmp, k + ".png")).convert("RGB")
+        bh = round(big.height * 500 / big.width)
+        big = big.resize((500, bh), Image.LANCZOS)
+        canvas = Image.new("RGB", (500, 355), (244, 246, 250))
+        canvas.paste(big.crop((0, 0, 500, min(bh, 355))), (0, max(0, (355 - bh) // 2)))
+        canvas.save(os.path.join(out_dir, k + ".png"), optimize=True)
+print(len(keys), "miniatures (jpg + png) dans", out_dir)

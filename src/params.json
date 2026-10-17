@@ -1,10 +1,119 @@
 {
-   "name" : "Skyline Blocks v1",
-   "alias" : "skyline-blocks",
-   "version" : 1,
+   "name": "Skyline Blocks v1",
+   "alias": "skyline-blocks",
+   "version": 1,
    "appScript": true,
-   "minAppVersion" : "5",
-   "components" : [ ],
-   "description" : "A gallery of ready-made blocks (menus, headers, pricing, schedule, FAQ, forms, footers...). Click the cube button in the top bar, pick a block and add it to your page. <a href='https://github.com/QuentinMarical/Skyline'>Learn more...</a>",
-   "logo" : "thumbnail.jpg"
+   "minAppVersion": "5.0.0",
+   "components": [
+      {
+         "path": "components/sk-menu1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-hero1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-positions1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-text1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-notice1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-venue1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-cards1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-departments1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-goodies1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-perks1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-steps1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-pricing1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-table1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-tiers1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-schedule1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-gallery1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-faq1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-form1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-cta1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-footer1",
+         "_group": "Skyline",
+         "_isSecondary": true
+      },
+      {
+         "path": "components/sk-footer2",
+         "_group": "Skyline",
+         "_isSecondary": true
+      }
+   ],
+   "description": "A gallery of ready-made blocks (menus, headers, pricing, schedule, FAQ, forms, footers...). Click the cube button in the top bar, pick a block and add it to your page. <a href='https://github.com/QuentinMarical/Skyline'>Learn more...</a>",
+   "logo": "thumbnail.jpg",
+   "plugins": [
+      "plugins"
+   ]
 }

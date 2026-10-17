@@ -1,0 +1,38 @@
+<section class="sk-block sk-table1" data-bs-version="5.1" plugins="skyline">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Subtitle" name="showSubtitle" checked>
+        <input type="checkbox" title="Show Note" name="showNote" checked>
+        <input type="color" title="Background Color" name="bgColor" value="#f2f7fa">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center mb-5 text-center">
+            <div class="col-12 col-lg-8">
+                <h2 class="sk-title mbr-section-title mb-3 mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">Room rates</h2>
+                <h3 class="sk-subtitle mbr-section-subtitle mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showSubtitle" data-app-selector=".mbr-section-subtitle">Price per person, per night.</h3>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                <div class="table-responsive">
+                    <table class="sk-table table mbr-fonts-style" mbr-theme-style="display-7">
+                        <thead><tr><th scope="col">Room type</th><th scope="col">1 person</th><th scope="col">2 people</th><th scope="col">3 people</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">Standard room</th><td>€ 120</td><td>€ 90</td><td>—</td></tr>
+                            <tr><th scope="row">Comfort room</th><td>€ 150</td><td>€ 110</td><td>€ 95</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="sk-note mt-3 mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showNote" data-app-selector=".sk-note">Please note: prices include taxes and breakfast. Sharing conditions apply.</p>
+            </div>
+        </div>
+    </div>
+
+    <style>:root{--sk-navy: #080866; --sk-sky: #38bdf5; --sk-red: #e30512; --sk-ice: #b5cce8; --sk-ice-2: #dce7f5; --sk-ice-3: #f2f7fa; --sk-ink: #111; --sk-muted: #5c6370; --sk-white: #fff; --sk-r-sm: 10px; --sk-r-md: 14px; --sk-r-lg: 18px; --sk-r-pill: 64px; --sk-font-title: "Shrikhand", "Inter", sans-serif; --sk-font-body: "Inter", system-ui, sans-serif; --sk-shadow: 0 8px 24px rgba(8, 8, 102, .12);}.sk-block{font-family: var(--sk-font-body); color: var(--sk-ink); position: relative;}.sk-block .sk-title{font-family: var(--sk-font-title); color: var(--sk-navy); font-weight: 400; line-height: 1.05;}.sk-block .sk-subtitle{color: var(--sk-muted);}.sk-block :focus-visible{outline: 2px solid var(--sk-navy); outline-offset: 2px;}.sk-block .mbr-overlay{position: absolute; inset: 0; pointer-events: none;}.sk-block > .container,.sk-block > .container-fluid{position: relative; z-index: 1;}.sk-table{--bs-table-bg: transparent; border-collapse: separate; border-spacing: 0; background: var(--sk-white); border-radius: var(--sk-r-md); overflow: hidden;}.sk-table thead th{background: #d6eefc; color: #0094d4; font-weight: 700; border: 0;}.sk-table tbody tr:nth-child(even) > *{background: var(--sk-ice-3);}.sk-table th[scope="row"]{color: var(--sk-navy);}.sk-note{color: var(--sk-muted);}</style>
+</section>
