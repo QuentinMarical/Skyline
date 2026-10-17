@@ -10,9 +10,6 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import skyline as sk  # noqa: E402
 
-out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(sk.ROOT, "preview", "index.html")
-
-
 def evaluate(expr, vals):
     e = expr
     for k in sorted(vals, key=len, reverse=True):
@@ -82,18 +79,26 @@ def render(block):
     return html
 
 
-parts = []
-for group, path in sk.block_files():
-    b = sk.load_block(group, path)
-    parts.append("<!-- %s -->\n%s" % (b["key"], render(b)))
-page = """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Skyline blocks - preview</title>
-<link rel="stylesheet" href="vendor/bootstrap.min.css">
-<link rel="stylesheet" href="../theme/skyline.css">
+PAGE = """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>%s</title>
+<link rel="stylesheet" href="%svendor/bootstrap.min.css">
+<link rel="stylesheet" href="%s../theme/skyline.css">
 <style>.sk-hero.sk-fullscreen{min-height:70vh}</style>
 </head><body>
 %s
-<script src="vendor/bootstrap.bundle.min.js"></script></body></html>""" % "\n".join(parts)
-os.makedirs(os.path.dirname(out), exist_ok=True)
-open(out, "w", encoding="utf-8").write(page)
-print("écrit", out, "-", len(parts), "blocs")
+<script src="%svendor/bootstrap.bundle.min.js"></script></body></html>"""
+
+
+def page(title, body, prefix=""):
+    return PAGE % (title, prefix, prefix, body, prefix)
+
+
+if __name__ == "__main__":
+    out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(sk.ROOT, "preview", "index.html")
+    parts = []
+    for group, path in sk.block_files():
+        b = sk.load_block(group, path)
+        parts.append("<!-- %s -->\n%s" % (b["key"], render(b)))
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    open(out, "w", encoding="utf-8").write(page("Skyline blocks - preview", "\n".join(parts)))
+    print("écrit", out, "-", len(parts), "blocs")

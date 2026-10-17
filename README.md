@@ -41,6 +41,13 @@ L'extension requiert un thème Mobirise basé sur **Bootstrap 5** (les thèmes d
 
 Les polices (titres / texte) se règlent dans Mobirise via le *Style Editor* ; les titres sont prévus pour une police d'affichage (Shrikhand dans le thème d'origine) et retombent sur Inter.
 
+## Site de démonstration
+
+`examples/demo-site/project.mobirise` est un projet Mobirise de 12 pages (accueil, à propos, programme, billets, FAQ, inscription, recrutement, contact, règlement, règlement des exposants, mentions légales, et une page « Tous les blocs ») dont chaque bouton du menu et du pied de page mène à une page. Le contenu est fictif.
+
+Pour l'ouvrir : installer l'extension, copier `project.mobirise` dans un dossier vide, l'ouvrir avec Mobirise (thème StartM5, Mobirise 6.1.x).
+Il est généré à partir de `examples/base.mobirise` (un projet réel contenant chaque bloc) par `tools/build_demo.py`, qui clone les composants tels que Mobirise les enregistre et n'en change que le texte, les liens et les options.
+
 ## Organisation du dépôt
 
 ```
@@ -63,6 +70,10 @@ tools/
   make_assets.py                icône, image d'accueil, visuel de fond
   test_extension.js             test de app.js avec un faux Mobirise (jsdom)
   test_less.js                  compile chaque style.less avec LESS
+  build_demo.py                 génère examples/demo-site/project.mobirise
+  check_project.py              contrôle d'un projet (liens, ancres, blocs globaux, textes oubliés, CSS à jour)
+  preview_project.py            rend un projet Mobirise en pages HTML (preview/site/)
+examples/                     base.mobirise (projet de départ) et demo-site/ (généré)
 preview/                      aperçu navigateur (généré)
 .github/workflows/build.yml   construit le .mbrext et crée la release sur un tag vN
 ```
@@ -74,6 +85,9 @@ python3 -I tools/build_preview.py      # aperçu navigateur : preview/index.html
 python3 -I tools/make_thumbs.py        # après un changement visuel (Node + Playwright + Pillow)
 python3 -I tools/build_extension.py    # régénère src/ (à committer)
 python3 -I tools/validate.py           # contrôle des blocs
+python3 -I tools/build_demo.py         # régénère le site de démonstration
+python3 -I tools/check_project.py      # contrôle du site de démonstration
+python3 -I tools/preview_project.py    # rend le site de démonstration dans preview/site/
 python3 -I tools/build_extension.py --zip   # + dist/skyline-blocks.mbrext
 ```
 
@@ -83,7 +97,7 @@ Ajouter un bloc : créer `blocks/<Groupe>/sk-xxx.html` (première ligne `<!-- ti
 
 1. Incrémenter `version` et `name` dans `src/params.json`, ajouter l'entrée au `CHANGELOG.md`.
 2. Régénérer `src/` (`build_extension.py`), committer.
-3. Créer et pousser le tag : `git tag v2 && git push origin v2`.
+3. Créer et pousser le tag : `git tag v3 && git push origin v3`.
 
 Le workflow construit `skyline-blocks.mbrext` et le publie dans la release (le lien `releases/latest/download/skyline-blocks.mbrext` pointe ensuite toujours sur la dernière version).
 

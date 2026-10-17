@@ -25,11 +25,11 @@
 /* Boutons */
 .sk-btn { display: inline-flex; max-width: 100%; text-align: center; justify-content: center; align-items: center; gap: .5rem; padding: .75rem 1.5rem; border-radius: var(--sk-r-pill); border: 2px solid transparent; font-weight: 500; text-decoration: none; transition: transform .15s, background-color .15s; }
 .sk-btn:hover { transform: translateY(-1px); }
-.sk-btn-primary { background: var(--sk-navy); color: var(--sk-white); }
-.sk-btn-primary:hover { background: #0d0da0; color: var(--sk-white); }
-.sk-btn-sky { background: var(--sk-sky); color: var(--sk-navy); }
-.sk-btn-outline { border-color: currentColor; background: transparent; color: var(--sk-navy); }
-.sk-btn-light { background: var(--sk-white); color: var(--sk-navy); }
+.sk-btn.sk-btn-primary { background: var(--sk-navy); color: var(--sk-white); }
+.sk-btn.sk-btn-primary:hover { background: #0d0da0; color: var(--sk-white); }
+.sk-btn.sk-btn-sky { background: var(--sk-sky); color: var(--sk-navy); }
+.sk-btn.sk-btn-outline { border-color: currentColor; background: transparent; color: var(--sk-navy); }
+.sk-btn.sk-btn-light { background: var(--sk-white); color: var(--sk-navy); }
 
 /* Navigation */
 .sk-menu { position: sticky; top: 0; z-index: 1000; background: var(--sk-white); box-shadow: 0 1px 0 rgba(0,0,0,.06); }
