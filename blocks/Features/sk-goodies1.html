@@ -1,0 +1,77 @@
+<section class="sk-block sk-goodies1" group="Features" data-bs-version="5.1" mbr-style="{'background-color': bgColor, 'padding-top': paddingTop * 15 + 'px', 'padding-bottom': paddingBottom * 15 + 'px'}">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Subtitle" name="showSubtitle" checked>
+        <input type="checkbox" title="Show Artist Credit" name="showCredit" checked>
+        <input type="checkbox" title="Show Level Badge" name="showLevel" checked>
+        <select title="Items" name="itemsAmount">
+            <option value="4">4</option>
+            <option value="6" selected>6</option>
+        </select>
+        <input type="color" title="Background Color" name="bgColor" value="#ffffff">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center mb-5 text-center">
+            <div class="col-12 col-lg-8">
+                <h2 class="sk-title mbr-section-title mb-3 mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">Goodies</h2>
+                <h3 class="sk-subtitle mbr-section-subtitle mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showSubtitle" data-app-selector=".mbr-section-subtitle">Collect them all.</h3>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-6 col-md-4" mbr-class="{'col-lg-3': itemsAmount == '4' || itemsAmount == '8', 'col-lg-4': itemsAmount == '6'}">
+                <article class="sk-good">
+                    <figure class="sk-good-img mbr-figure"><img src="@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg" alt="T-shirt"></figure>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-card-title">T-shirt</h4>
+                    <p class="sk-credit mb-1 mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showCredit" data-app-selector=".sk-credit">Illustration: Artist A</p>
+                    <span class="sk-badge mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showLevel">Level 2</span>
+                </article>
+            </div>
+            <div class="col-6 col-md-4" mbr-class="{'col-lg-3': itemsAmount == '4' || itemsAmount == '8', 'col-lg-4': itemsAmount == '6'}">
+                <article class="sk-good">
+                    <figure class="sk-good-img mbr-figure"><img src="@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg" alt="Hoodie"></figure>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-card-title">Hoodie</h4>
+                    <p class="sk-credit mb-1 mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showCredit" data-app-selector=".sk-credit">Illustration: Artist B</p>
+                    <span class="sk-badge mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showLevel">Level 3</span>
+                </article>
+            </div>
+            <div class="col-6 col-md-4" mbr-class="{'col-lg-3': itemsAmount == '4' || itemsAmount == '8', 'col-lg-4': itemsAmount == '6'}">
+                <article class="sk-good">
+                    <figure class="sk-good-img mbr-figure"><img src="@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg" alt="Luggage tag"></figure>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-card-title">Luggage tag</h4>
+                    <p class="sk-credit mb-1 mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showCredit" data-app-selector=".sk-credit">Illustration: Artist A</p>
+                    <span class="sk-badge mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showLevel">Level 1</span>
+                </article>
+            </div>
+            <div class="col-6 col-md-4" mbr-class="{'col-lg-3': itemsAmount == '4' || itemsAmount == '8', 'col-lg-4': itemsAmount == '6'}">
+                <article class="sk-good">
+                    <figure class="sk-good-img mbr-figure"><img src="@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg" alt="Mug"></figure>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-card-title">Mug</h4>
+                    <p class="sk-credit mb-1 mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showCredit" data-app-selector=".sk-credit">Illustration: Artist C</p>
+                    <span class="sk-badge mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showLevel">Level 1</span>
+                </article>
+            </div>
+            <div class="col-6 col-md-4" mbr-class="{'col-lg-3': itemsAmount == '4' || itemsAmount == '8', 'col-lg-4': itemsAmount == '6'}" mbr-if="itemsAmount == '6'">
+                <article class="sk-good">
+                    <figure class="sk-good-img mbr-figure"><img src="@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg" alt="Backpack"></figure>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-card-title">Backpack</h4>
+                    <p class="sk-credit mb-1 mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showCredit" data-app-selector=".sk-credit">Illustration: Artist B</p>
+                    <span class="sk-badge mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showLevel">Level 3</span>
+                </article>
+            </div>
+            <div class="col-6 col-md-4" mbr-class="{'col-lg-3': itemsAmount == '4' || itemsAmount == '8', 'col-lg-4': itemsAmount == '6'}" mbr-if="itemsAmount == '6'">
+                <article class="sk-good">
+                    <figure class="sk-good-img mbr-figure"><img src="@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg" alt="Travel pillow"></figure>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-card-title">Travel pillow</h4>
+                    <p class="sk-credit mb-1 mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showCredit" data-app-selector=".sk-credit">Illustration: Artist C</p>
+                    <span class="sk-badge mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showLevel">Level 2</span>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>

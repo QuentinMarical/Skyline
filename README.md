@@ -4,15 +4,28 @@ Bibliothèque de blocs personnalisés pour **Mobirise 6.1.12** (Bootstrap 5.1), 
 
 ## Contenu
 
-| Groupe | Bloc | Options (panneau « engrenage ») |
+| Groupe | Bloc | Contenu / options |
 |---|---|---|
-| Navigation | `sk-menu1` | sticky, bouton, nombre d'entrées, couleur de fond |
+| Navigation | `sk-menu1` | barre sticky, bouton, 1–8 entrées, couleur |
 | Headers | `sk-hero1` | plein écran, capsule date/lieu, titre, texte, boutons, fond image/couleur/vidéo, overlay |
-| Features | `sk-cards1` | 1 à 4 cartes, icônes, style (doux / glace / contour), fond |
-| Steps | `sk-steps1` | 2 à 4 étapes numérotées |
-| Pricing | `sk-pricing1` | 2 ou 3 formules, badge « populaire », boutons |
-| FAQ | `sk-faq1` | 1 à 6 questions (accordéon Bootstrap) |
-| Footers | `sk-footer1` | colonnes, réseaux, mention légale, couleur de fond |
+| Text | `sk-text1` | introduction centrée + signature |
+| Text | `sk-positions1` | postes repliables par département (responsabilités / profil), 1–5 |
+| Info | `sk-venue1` | lieu : texte, adresse, liste d'accès (métro, train, bus, voiture), image à gauche/droite |
+| Info | `sk-notice1` | bandeau d'avis (note / alerte / succès) |
+| Features | `sk-cards1` | 1–4 cartes, icônes, style doux / glace / contour |
+| Features | `sk-goodies1` | produits : visuel, crédit artiste, badge de niveau, 4 ou 6 |
+| Features | `sk-perks1` | liste d'avantages à coches + bouton |
+| Features | `sk-departments1` | 2–6 équipes (titre + paragraphe) |
+| Steps | `sk-steps1` | 2–4 étapes numérotées |
+| Pricing | `sk-pricing1` | 2 ou 3 formules, badge « populaire » |
+| Pricing | `sk-tiers1` | niveaux de soutien cumulatifs (+ prix), 2 ou 3 |
+| Pricing | `sk-table1` | grille tarifaire (type de chambre × nombre de personnes) + note |
+| Schedule | `sk-schedule1` | programme par jour, horaires et pastilles de catégorie |
+| Gallery | `sk-gallery1` | grille de photos, 3 ou 6 |
+| FAQ | `sk-faq1` | 1–6 questions (accordéon) |
+| Forms | `sk-form1` | formulaire de contact (`mbr-form`) |
+| CTA | `sk-cta1` | bandeau d'appel à l'action sur fond marine |
+| Footers | `sk-footer1`, `sk-footer2` | colonnes + réseaux ; groupes de liens + mention légale |
 
 Chaque bloc est un fichier `.html` unique : balise `<section>` + `<mbr-parameters>` (options) + balisage utilisant les attributs Mobirise (`mbr-if`, `mbr-class`, `mbr-style`, `mbr-theme-style`, `mbr-buttons`, `mbr-list`, `mbr-icon`).
 

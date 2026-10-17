@@ -1,0 +1,23 @@
+<section class="sk-block sk-cta1" group="CTA" data-bs-version="5.1" mbr-style="{'background-color': bgColor, 'padding-top': paddingTop * 15 + 'px', 'padding-bottom': paddingBottom * 15 + 'px'}">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="7">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="7">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Text" name="showText" checked>
+        <input type="checkbox" title="Show Buttons" name="showButtons" checked>
+        <input type="color" title="Background Color" name="bgColor" value="#080866">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-12 col-lg-8">
+                <h2 class="sk-title sk-title--light mbr-section-title mb-3 mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">Ready to take off?</h2>
+                <p class="mbr-text sk-text--light mb-4 mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showText">A short sentence that invites people to act now.</p>
+                <div class="mbr-section-btn" mbr-if="showButtons" mbr-buttons mbr-theme-style="display-4" data-toolbar="-mbrBtnMove"><a class="sk-btn sk-btn-sky me-2 mb-2" href="#">Get your pass</a><a class="sk-btn sk-btn-light mb-2" href="#">Learn more</a></div>
+            </div>
+        </div>
+    </div>
+</section>

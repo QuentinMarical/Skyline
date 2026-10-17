@@ -1,0 +1,27 @@
+<section class="sk-block sk-perks1" group="Features" data-bs-version="5.1" mbr-style="{'background-color': bgColor, 'padding-top': paddingTop * 15 + 'px', 'padding-bottom': paddingBottom * 15 + 'px'}">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Buttons" name="showButtons" checked>
+        <input type="color" title="Background Color" name="bgColor" value="#f2f7fa">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <h2 class="sk-title mbr-section-title mb-4 text-center mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">Volunteer perks</h2>
+                <ul class="sk-check mbr-text mbr-fonts-style" mbr-theme-style="display-5" mbr-list>
+                    <li mbr-text>A reserved entry ticket</li>
+                    <li mbr-text>Exclusive goodies</li>
+                    <li mbr-text>Access to a staff lounge with snacks</li>
+                    <li mbr-text>And a few more surprises</li>
+                </ul>
+                <div class="mbr-section-btn text-center mt-4" mbr-if="showButtons" mbr-buttons mbr-theme-style="display-4" data-toolbar="-mbrBtnMove,-mbrBtnAdd"><a class="sk-btn sk-btn-primary" href="#">Fill in the form to join the team</a></div>
+            </div>
+        </div>
+    </div>
+</section>

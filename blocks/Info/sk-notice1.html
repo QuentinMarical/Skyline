@@ -1,0 +1,27 @@
+<section class="sk-block sk-notice1" group="Info" data-bs-version="5.1" mbr-style="{'background-color': bgColor, 'padding-top': paddingTop * 15 + 'px', 'padding-bottom': paddingBottom * 15 + 'px'}">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="3">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="3">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <select title="Style" name="noticeStyle">
+            <option value="note" selected>Note</option>
+            <option value="alert">Alert</option>
+            <option value="success">Success</option>
+        </select>
+        <input type="color" title="Background Color" name="bgColor" value="#ffffff">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9">
+                <div class="sk-alert" role="note" mbr-class="{'sk-alert--danger': noticeStyle == 'alert', 'sk-alert--success': noticeStyle == 'success'}">
+                    <h4 class="sk-alert-title mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showTitle" data-app-selector=".sk-alert-title">Please note</h4>
+                    <p class="mbr-text mb-0 mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".mbr-text">Use this banner for conditions, deadlines or important reminders.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

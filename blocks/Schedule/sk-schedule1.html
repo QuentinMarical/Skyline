@@ -1,0 +1,43 @@
+<section class="sk-block sk-schedule1" group="Schedule" data-bs-version="5.1" mbr-style="{'background-color': bgColor, 'padding-top': paddingTop * 15 + 'px', 'padding-bottom': paddingBottom * 15 + 'px'}">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Subtitle" name="showSubtitle" checked>
+        <select title="Days" name="daysAmount">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+        </select>
+        <input type="color" title="Background Color" name="bgColor" value="#ffffff">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center mb-5 text-center">
+            <div class="col-12 col-lg-8">
+                <h2 class="sk-title mbr-section-title mb-3 mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">Programme</h2>
+                <h3 class="sk-subtitle mbr-section-subtitle mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showSubtitle" data-app-selector=".mbr-section-subtitle">Two days of activities.</h3>
+            </div>
+        </div>
+        <div class="row g-4 gx-lg-5">
+            <div class="col-12 col-lg-6">
+                <h4 class="sk-day mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-day">Friday</h4>
+                <ul class="sk-schedule list-unstyled mbr-fonts-style" mbr-theme-style="display-7">
+                    <li class="sk-event" data-cat="Main"><span class="sk-time">10:00</span><span class="sk-event-name">Opening ceremony</span><span class="sk-chip">Main</span></li>
+                    <li class="sk-event" data-cat="Panel"><span class="sk-time">11:30</span><span class="sk-event-name">Panel: getting started</span><span class="sk-chip">Panel</span></li>
+                    <li class="sk-event" data-cat="Workshop"><span class="sk-time">14:00</span><span class="sk-event-name">Workshop</span><span class="sk-chip">Workshop</span></li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-6" mbr-if="daysAmount > 1">
+                <h4 class="sk-day mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-day">Saturday</h4>
+                <ul class="sk-schedule list-unstyled mbr-fonts-style" mbr-theme-style="display-7">
+                    <li class="sk-event" data-cat="Main"><span class="sk-time">09:30</span><span class="sk-event-name">Morning session</span><span class="sk-chip">Main</span></li>
+                    <li class="sk-event" data-cat="Event"><span class="sk-time">13:00</span><span class="sk-event-name">Parade</span><span class="sk-chip">Event</span></li>
+                    <li class="sk-event" data-cat="Dance"><span class="sk-time">21:00</span><span class="sk-event-name">Party</span><span class="sk-chip">Dance</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

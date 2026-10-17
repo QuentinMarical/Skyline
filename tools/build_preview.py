@@ -4,10 +4,12 @@
 Usage : python3 -I tools/build_preview.py [dossier_blocs] [fichier_sortie]"""
 import re, sys, glob, os
 
-ORDER = ["Navigation", "Headers", "Features", "Steps", "Pricing", "FAQ", "Footers"]
+ORDER = ["Navigation", "Headers", "Text", "Info", "Features", "Steps", "Pricing", "Schedule", "Gallery", "FAQ", "Forms", "CTA", "Footers"]
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 blocks_dir = sys.argv[1] if len(sys.argv) > 1 else os.path.join(root, "blocks")
 out = sys.argv[2] if len(sys.argv) > 2 else os.path.join(root, "preview", "index.html")
+
+PLACEHOLDER = "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23b5cce8'/%3E%3Cstop offset='1' stop-color='%2338bdf5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='16' height='9' fill='url(%23g)'/%3E%3C/svg%3E"
 
 def defaults(params):
     vals = {}
@@ -54,6 +56,7 @@ def render(html):
                     html = html[:m.start()] + html[m.start()+t.end():]; break
             else: return html
     html = drop(html)
+    html = html.replace("@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg", PLACEHOLDER)
     def mbr_class(m):
         body = m.group(1)
         if body.strip().startswith('{'):

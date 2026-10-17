@@ -1,0 +1,33 @@
+<section class="sk-block sk-gallery1" group="Gallery" data-bs-version="5.1" mbr-style="{'background-color': bgColor, 'padding-top': paddingTop * 15 + 'px', 'padding-bottom': paddingBottom * 15 + 'px'}">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Subtitle" name="showSubtitle" checked>
+        <select title="Photos" name="photosAmount">
+            <option value="3">3</option>
+            <option value="6" selected>6</option>
+        </select>
+        <input type="color" title="Background Color" name="bgColor" value="#ffffff">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center mb-5 text-center">
+            <div class="col-12 col-lg-8">
+                <h2 class="sk-title mbr-section-title mb-3 mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">Memories from last time</h2>
+                <h3 class="sk-subtitle mbr-section-subtitle mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showSubtitle" data-app-selector=".mbr-section-subtitle">A look back at the previous edition.</h3>
+            </div>
+        </div>
+        <div class="row g-3">
+            <div class="col-6 col-md-4"><figure class="sk-photo mbr-figure"><img src="@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg" alt="Photo 1"></figure></div>
+            <div class="col-6 col-md-4"><figure class="sk-photo mbr-figure"><img src="@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg" alt="Photo 2"></figure></div>
+            <div class="col-6 col-md-4"><figure class="sk-photo mbr-figure"><img src="@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg" alt="Photo 3"></figure></div>
+            <div class="col-6 col-md-4" mbr-if="photosAmount == '6'"><figure class="sk-photo mbr-figure"><img src="@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg" alt="Photo 4"></figure></div>
+            <div class="col-6 col-md-4" mbr-if="photosAmount == '6'"><figure class="sk-photo mbr-figure"><img src="@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg" alt="Photo 5"></figure></div>
+            <div class="col-6 col-md-4" mbr-if="photosAmount == '6'"><figure class="sk-photo mbr-figure"><img src="@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg" alt="Photo 6"></figure></div>
+        </div>
+    </div>
+</section>

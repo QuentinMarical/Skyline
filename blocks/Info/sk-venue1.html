@@ -1,0 +1,37 @@
+<section class="sk-block sk-venue1" group="Info" data-bs-version="5.1" mbr-style="{'background-color': bgColor, 'padding-top': paddingTop * 15 + 'px', 'padding-bottom': paddingBottom * 15 + 'px'}">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Text" name="showText" checked>
+        <input type="checkbox" title="Show Access List" name="showAccess" checked>
+        <input type="checkbox" title="Show Map Placeholder" name="showMap" checked>
+        <select title="Image Side" name="imageSide">
+            <option value="right" selected>Right</option>
+            <option value="left">Left</option>
+        </select>
+        <input type="color" title="Background Color" name="bgColor" value="#ffffff">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row g-4 gx-lg-5 align-items-center" mbr-class="{'flex-row-reverse': imageSide == 'left'}">
+            <div class="col-12 col-lg-6">
+                <h2 class="sk-title mbr-section-title mb-3 mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">The venue</h2>
+                <p class="mbr-text mb-4 mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showText">Describe the venue: its size, its facilities, what makes it a good fit. One short paragraph is enough.</p>
+                <address class="sk-address mb-4 mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-address">123 Example Avenue<br>75000 City</address>
+                <ul class="sk-access list-unstyled mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showAccess" mbr-list>
+                    <li mbr-text><strong>Metro:</strong> lines 1 and 2</li>
+                    <li mbr-text><strong>Train:</strong> lines A and B</li>
+                    <li mbr-text><strong>Bus:</strong> 12 and N34</li>
+                    <li mbr-text><strong>Car:</strong> motorway exit 5</li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-6">
+                <figure class="sk-figure mbr-figure mb-0" mbr-if="showMap"><img src="@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg" alt="Venue"></figure>
+            </div>
+        </div>
+    </div>
+</section>

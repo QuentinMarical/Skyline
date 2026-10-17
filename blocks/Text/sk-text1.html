@@ -1,0 +1,23 @@
+<section class="sk-block sk-text1" group="Text" data-bs-version="5.1" mbr-style="{'background-color': bgColor, 'padding-top': paddingTop * 15 + 'px', 'padding-bottom': paddingBottom * 15 + 'px'}">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Text" name="showText" checked>
+        <input type="checkbox" title="Show Signature" name="showSignature" checked>
+        <input type="color" title="Background Color" name="bgColor" value="#ffffff">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9 text-center">
+                <h2 class="sk-title mbr-section-title mb-4 mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">Welcome aboard</h2>
+                <p class="mbr-text mb-4 mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showText">Introduce your event or organisation in two or three paragraphs. Keep the tone friendly and invite visitors to read on. Replace this placeholder with your own text.</p>
+                <p class="sk-signature mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showSignature" data-app-selector=".sk-signature">The team is waiting for you!</p>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,48 @@
+<section class="sk-block sk-departments1" group="Features" data-bs-version="5.1" mbr-style="{'background-color': bgColor, 'padding-top': paddingTop * 15 + 'px', 'padding-bottom': paddingBottom * 15 + 'px'}">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Subtitle" name="showSubtitle" checked>
+        <input type="range" inline title="Departments" name="deptCount" min="2" max="6" step="1" value="4">
+        <input type="color" title="Background Color" name="bgColor" value="#ffffff">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center mb-5 text-center">
+            <div class="col-12 col-lg-8">
+                <h2 class="sk-title mbr-section-title mb-3 mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">Our teams</h2>
+                <h3 class="sk-subtitle mbr-section-subtitle mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showSubtitle" data-app-selector=".mbr-section-subtitle">Who does what.</h3>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6">
+                <h4 class="sk-dept-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-dept-title">ACCOUNTING</h4>
+                <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".mbr-text">One short paragraph describing what this team does and why it matters.</p>
+            </div>
+            <div class="col-12 col-md-6">
+                <h4 class="sk-dept-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-dept-title">SAFETY</h4>
+                <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".mbr-text">One short paragraph describing what this team does and why it matters.</p>
+            </div>
+            <div class="col-12 col-md-6" mbr-if="deptCount > 2">
+                <h4 class="sk-dept-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-dept-title">STAGE</h4>
+                <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".mbr-text">One short paragraph describing what this team does and why it matters.</p>
+            </div>
+            <div class="col-12 col-md-6" mbr-if="deptCount > 3">
+                <h4 class="sk-dept-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-dept-title">TECHNOLOGY</h4>
+                <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".mbr-text">One short paragraph describing what this team does and why it matters.</p>
+            </div>
+            <div class="col-12 col-md-6" mbr-if="deptCount > 4">
+                <h4 class="sk-dept-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-dept-title">LOGISTICS</h4>
+                <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".mbr-text">One short paragraph describing what this team does and why it matters.</p>
+            </div>
+            <div class="col-12 col-md-6" mbr-if="deptCount > 5">
+                <h4 class="sk-dept-title mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".sk-dept-title">COMMUNICATION</h4>
+                <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" data-app-selector=".mbr-text">One short paragraph describing what this team does and why it matters.</p>
+            </div>
+        </div>
+    </div>
+</section>

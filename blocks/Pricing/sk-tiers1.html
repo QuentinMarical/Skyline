@@ -1,0 +1,52 @@
+<section class="sk-block sk-tiers1" group="Pricing" data-bs-version="5.1" mbr-style="{'background-color': bgColor, 'padding-top': paddingTop * 15 + 'px', 'padding-bottom': paddingBottom * 15 + 'px'}">
+
+    <mbr-parameters>
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="6">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="6">
+        <input type="checkbox" title="Show Title" name="showTitle" checked>
+        <input type="checkbox" title="Show Subtitle" name="showSubtitle" checked>
+        <input type="checkbox" title="Show "Includes previous" Note" name="showIncludes" checked>
+        <select title="Levels" name="levelsAmount">
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+        </select>
+        <input type="color" title="Background Color" name="bgColor" value="#ffffff">
+    <!-- End block parameters -->
+    </mbr-parameters>
+
+    <div class="container">
+        <div class="row justify-content-center mb-5 text-center">
+            <div class="col-12 col-lg-8">
+                <h2 class="sk-title mbr-section-title mb-3 mbr-fonts-style" mbr-theme-style="display-2" mbr-if="showTitle">Support levels</h2>
+                <h3 class="sk-subtitle mbr-section-subtitle mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showSubtitle" data-app-selector=".mbr-section-subtitle">Each level includes the benefits of the previous one.</h3>
+            </div>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="sk-tier">
+                    <span class="sk-badge mb-2 mbr-fonts-style" mbr-theme-style="display-4">Level 1</span>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-card-title">Friend</h4>
+                    <div class="sk-price mbr-fonts-style" mbr-theme-style="display-2" data-app-selector=".sk-price">+ € 30</div>
+                    <ul class="sk-check mbr-text mbr-fonts-style" mbr-theme-style="display-7"><li>Name on the supporters wall</li><li>Exclusive tote bag</li></ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4" mbr-if="levelsAmount > 1">
+                <div class="sk-tier">
+                    <span class="sk-badge mb-2 mbr-fonts-style" mbr-theme-style="display-4">Level 2</span>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-card-title">Supporter</h4>
+                    <div class="sk-price mbr-fonts-style" mbr-theme-style="display-2" data-app-selector=".sk-price">+ € 60</div>
+                    <ul class="sk-check mbr-text mbr-fonts-style" mbr-theme-style="display-7"><li>Everything in Friend</li><li>Limited-edition T-shirt</li></ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4" mbr-if="levelsAmount > 2">
+                <div class="sk-tier sk-tier--top">
+                    <span class="sk-badge mb-2 mbr-fonts-style" mbr-theme-style="display-4">Level 3</span>
+                    <h4 class="sk-card-title mbr-fonts-style" mbr-theme-style="display-5" data-app-selector=".sk-card-title">Patron</h4>
+                    <div class="sk-price mbr-fonts-style" mbr-theme-style="display-2" data-app-selector=".sk-price">+ € 120</div>
+                    <ul class="sk-check mbr-text mbr-fonts-style" mbr-theme-style="display-7"><li>Everything in Supporter</li><li>Early access to ceremonies</li><li>Reserved seating</li></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
