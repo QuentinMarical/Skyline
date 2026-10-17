@@ -1,0 +1,10 @@
+{
+   "name" : "Skyline Blocks v1",
+   "alias" : "skyline-blocks",
+   "version" : 1,
+   "appScript": true,
+   "minAppVersion" : "5",
+   "components" : [ ],
+   "description" : "A gallery of ready-made blocks (menus, headers, pricing, schedule, FAQ, forms, footers...). Click the cube button in the top bar, pick a block and add it to your page. <a href='https://github.com/QuentinMarical/Skyline'>Learn more...</a>",
+   "logo" : "thumbnail.jpg"
+}

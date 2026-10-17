@@ -1,0 +1,45 @@
+name: Build Mobirise Extension
+
+on:
+  push:
+    tags:
+      - 'v*'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build the .mbrext file
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # nécessaire pour créer la release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check that src/app.js is up to date
+        run: |
+          python3 -I tools/build_extension.py
+          git diff --exit-code -- src/app.js
+
+      - name: Check tag matches the extension version
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: python3 -I tools/build_extension.py --check-tag "${GITHUB_REF_NAME}"
+
+      - name: Create the .mbrext file
+        run: python3 -I tools/build_extension.py --zip
+
+      - name: Keep the file as a build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: skyline-blocks.mbrext
+          path: dist/skyline-blocks.mbrext
+
+      - name: Create the release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" dist/skyline-blocks.mbrext \
+            --title "Skyline Blocks ${GITHUB_REF_NAME}" \
+            --generate-notes

@@ -1,8 +1,19 @@
-# Skyline — blocs Mobirise
+# Skyline Blocks
 
-Bibliothèque de blocs personnalisés pour **Mobirise 6.1.12** (Bootstrap 5.1), avec un système de style marine / bleu ciel : titres en police d'affichage, boutons pilule, cartes arrondies, pied de page marine.
+Extension **Mobirise 6** : une galerie de 21 blocs prêts à l'emploi (menu, bannière, tarifs, programme, FAQ, formulaire, pieds de page…) au style marine / bleu ciel, avec Bootstrap 5.
 
-## Contenu
+![Aperçu](src/splash.jpg)
+
+## Installation
+
+1. Télécharger le fichier : [`skyline-blocks.mbrext`](https://github.com/QuentinMarical/Skyline/releases/latest/download/skyline-blocks.mbrext)
+2. Dans Mobirise, ouvrir le menu **Extensions** et installer le fichier `.mbrext` (ou le glisser dans la fenêtre), puis redémarrer Mobirise.
+3. Dans un projet, cliquer sur le bouton **cube** ajouté dans la barre du haut (à côté des icônes d'appareils), choisir un bloc, puis **ADD BLOCK TO PAGE**.
+4. Personnaliser le bloc avec l'icône d'engrenage (nombre de cartes, couleurs, fond, afficher/masquer le titre, etc.).
+
+L'extension requiert un thème Mobirise basé sur **Bootstrap 5** (les thèmes de la série 5/6) ; les anciens thèmes ne sont pas pris en charge.
+
+## Les blocs
 
 | Groupe | Bloc | Contenu / options |
 |---|---|---|
@@ -10,7 +21,7 @@ Bibliothèque de blocs personnalisés pour **Mobirise 6.1.12** (Bootstrap 5.1), 
 | Headers | `sk-hero1` | plein écran, capsule date/lieu, titre, texte, boutons, fond image/couleur/vidéo, overlay |
 | Text | `sk-text1` | introduction centrée + signature |
 | Text | `sk-positions1` | postes repliables par département (responsabilités / profil), 1–5 |
-| Info | `sk-venue1` | lieu : texte, adresse, liste d'accès (métro, train, bus, voiture), image à gauche/droite |
+| Info | `sk-venue1` | lieu : texte, adresse, accès (métro, train, bus, voiture), image à gauche/droite |
 | Info | `sk-notice1` | bandeau d'avis (note / alerte / succès) |
 | Features | `sk-cards1` | 1–4 cartes, icônes, style doux / glace / contour |
 | Features | `sk-goodies1` | produits : visuel, crédit artiste, badge de niveau, 4 ou 6 |
@@ -27,29 +38,56 @@ Bibliothèque de blocs personnalisés pour **Mobirise 6.1.12** (Bootstrap 5.1), 
 | CTA | `sk-cta1` | bandeau d'appel à l'action sur fond marine |
 | Footers | `sk-footer1`, `sk-footer2` | colonnes + réseaux ; groupes de liens + mention légale |
 
-Chaque bloc est un fichier `.html` unique : balise `<section>` + `<mbr-parameters>` (options) + balisage utilisant les attributs Mobirise (`mbr-if`, `mbr-class`, `mbr-style`, `mbr-theme-style`, `mbr-buttons`, `mbr-list`, `mbr-icon`).
+Les polices (titres / texte) se règlent dans Mobirise via le *Style Editor* ; les titres sont prévus pour une police d'affichage (Shrikhand dans le thème d'origine) et retombent sur Inter.
+
+## Organisation du dépôt
 
 ```
-blocks/<Groupe>/<bloc>.html   modèles de blocs
-theme/skyline.css             jetons (--sk-*) et styles des blocs
-preview/index.html            aperçu navigateur (généré)
-tools/build_preview.py        génère l'aperçu à partir des blocs
+src/                      contenu de l'extension (ce qui est zippé dans le .mbrext)
+  params.json               nom, alias, version, version minimale de Mobirise
+  app.js                    GÉNÉRÉ : galerie + blocs embarqués
+  splash.html, splash.jpg   page de présentation dans le gestionnaire d'extensions
+  thumbnail.jpg             icône de l'extension
+blocks/<Groupe>/<bloc>.html   source des blocs (balise <section> + <mbr-parameters>)
+theme/skyline.css             jetons (--sk-*) et styles ; chaque bloc n'embarque que ses règles
+tools/
+  skyline.py                  fonctions communes (lecture des blocs, styles, CSS)
+  build_extension.py          génère src/app.js et dist/skyline-blocks.mbrext
+  build_preview.py            génère preview/index.html (aperçu navigateur)
+  make_thumbs.py, shoot.js    miniatures de la galerie (tools/thumbs/*.jpg)
+  make_assets.py              icône et image d'accueil
+  test_extension.js           test de app.js avec un faux Mobirise (jsdom)
+preview/                    aperçu navigateur (généré)
+.github/workflows/build.yml construit le .mbrext et crée la release sur un tag vN
 ```
 
-## Aperçu navigateur
+## Développer
 
 ```bash
-python3 -I tools/build_preview.py   # puis ouvrir preview/index.html
+python3 -I tools/build_preview.py      # aperçu navigateur : preview/index.html
+python3 -I tools/make_thumbs.py        # après un changement visuel (Node + Playwright + Pillow)
+python3 -I tools/build_extension.py    # régénère src/app.js (à committer)
+python3 -I tools/build_extension.py --zip   # + dist/skyline-blocks.mbrext
 ```
 
-L'aperçu retire la syntaxe Mobirise et applique les valeurs par défaut des options ; il sert à contrôler le rendu, pas à remplacer un test dans Mobirise.
+Ajouter un bloc : créer `blocks/<Groupe>/sk-xxx.html` (première ligne `<!-- title: Nom affiché -->`), le titre et les options suivent le format Mobirise (`<mbr-parameters>`, `mbr-if`, `mbr-class`, …). Les marges (`paddingTop`/`paddingBottom`) et le fond (`bgColor` ou fieldset `bg`) sont convertis automatiquement en `_styles`. Puis lancer `make_thumbs.py` et `build_extension.py`.
 
-## Personnalisation
+## Publier une version
 
-Couleurs, rayons, polices : variables `--sk-*` en tête de `theme/skyline.css`. Les polices (titres / texte) se règlent dans Mobirise via *Style Editor*.
+1. Incrémenter `version` et `name` dans `src/params.json`, ajouter l'entrée au `CHANGELOG.md`.
+2. Régénérer `src/app.js`, committer.
+3. Créer et pousser le tag : `git tag v2 && git push origin v2`.
 
-## Compatibilité — à lire
+Le workflow construit `skyline-blocks.mbrext` et le publie dans la release (le lien `releases/latest/download/skyline-blocks.mbrext` pointe ensuite toujours sur la dernière version).
 
-- Le format des modèles de blocs (`<mbr-parameters>`, `mbr-*`) est celui des projets de référence publiés par Mobirise (historique du dépôt `Mobirise/Mobirise`, dossier `bootstrap-templates`) et du format d'extension communautaire (`params.json` / `component.js` / `template.html`).
-- **Non testé dans Mobirise 6.1.12 lui-même** (application de bureau, non disponible dans l'environnement de génération). Le rendu HTML/CSS est vérifié dans Chromium ; le comportement des options dans l'application reste à valider à l'import.
-- Le code de padding (`paddingTop * 15 + 'px'`) et les listes (`mbr-list-grow`) suivent les exemples de référence ; à ajuster si Mobirise 6 attend une autre syntaxe.
+## Compatibilité
+
+- Le format d'extension (`params.json`, `app.js` avec `defineM` / `mbrApp.regExtension`, bouton dans `.navbar-devices`, import d'un composant `_customHTML` + `_styles`) est celui de l'extension [Design Blocks](https://github.com/witsec/mobirise-design-blocks) de witsec, maintenue jusqu'à Mobirise 6.0.4 et après.
+- Testé : le script de l'extension (galerie, sélection, ajout du composant, identifiants uniques) avec un faux environnement Mobirise ; le rendu des blocs dans Chromium.
+- **Non testé dans l'application Mobirise 6.1.12 elle-même.** Signaler tout bloc dont les options ne réagissent pas.
+
+## Crédits et licence
+
+La structure de l'extension et la méthode d'import d'un bloc s'inspirent de [mobirise-design-blocks](https://github.com/witsec/mobirise-design-blocks) de witsec (licence MIT). Le format des modèles de blocs vient des projets de référence publiés par Mobirise.
+
+Licence MIT, voir [LICENSE](LICENSE).
